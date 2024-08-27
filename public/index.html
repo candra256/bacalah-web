@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+
+    <link rel="stylesheet" href="css/style.css" />
+
+    <!-- alpine.js -->
+    <script src="//unpkg.com/alpinejs" defer></script>
+    <script src="books.js"></script>
+
+  </head>
+  <body>
+
+    <!-- navigasi -->
+    <nav class="flex flex-row bg-green-400 h-24 p-3 md:p-4 w-full sticky top-0 z-10 shadow-md">
+      <!-- Logo dan Link Utama -->
+      <a
+        href="index.html"
+        class="flex items-center cursor-pointer flex-shrink-0 basis-1/6 text-2xl md:text-5xl lg:text-4xl md:font-semibold text-nowrap font-bold"
+      >
+        Bacalah
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-9 w-12"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+          />
+        </svg>
+      </a>
+
+      <!-- Menu Hamburger dan Ikon Pencarian -->
+      <div class="flex items-center ml-auto">
+        <button id="search-button" class="lg:hidden text-white text-2xl mr-4 md:mr-8">🔍</button>
+        <button id="menu-button" class="lg:hidden text-black text-2xl">☰</button>
+      </div>
+
+      <!-- Menu Links (Hidden on Mobile) -->
+      <div class="flex-grow basis-1/6 hidden gap-24 items-center justify-center text-xl lg:flex md:hidden">
+        <a href="#" class="relative inline-block px-2 py-1 text-gray-800 group">
+          Beranda
+          <span
+            class="absolute bottom-0 left-0 h-1 bg-slate-950 transition-all duration-300 ease-in-out w-0 group-hover:w-full"
+          ></span>
+        </a>
+        <a href="#" class="relative inline-block px-2 py-1 text-gray-800 group">
+          MasukanBuku
+          <span
+            class="absolute bottom-0 left-0 h-1 bg-slate-950 transition-all duration-300 ease-in-out w-0 group-hover:w-full"
+          ></span>
+        </a>
+        <a href="#" class="relative inline-block px-2 py-1 text-gray-800 group">
+          Tentang
+          <span
+            class="absolute bottom-0 left-0 h-1 bg-slate-950 transition-all duration-300 ease-in-out w-0 group-hover:w-full"
+          ></span>
+        </a>
+      </div>
+
+      <!-- Form Pencarian (Hidden on Mobile) -->
+      <form
+        class="items-center flex-grow-0 w-[20rem] p-1 hidden md:hidden lg:flex sm:flex"
+        role="search"
+      >
+        <input
+          class="w-full mr-2 rounded-md p-3 shadow-md"
+          style="height: 2.5rem"
+          type="search"
+          placeholder="nyari buku apa nih ?"
+          aria-label="Search"
+        />
+        <button
+          class="flex-shrink-0 bg-sky-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-sky-950 focus:outline-none focus:ring-2 focus:ring-slate-700 focus:ring-opacity-50"
+          type="submit"
+        >
+          Cari
+        </button>
+      </form>
+
+      <!-- Mobile Menu (Hidden on Desktop) -->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 right-0 h-full w-64 md:w-80 bg-black transform translate-x-full transition-transform
+         duration-300 ease-in-out"
+      >
+        <div class="flex justify-end p-4">
+          <button id="close-menu" class="text-3xl text-white hover:">❎</button>
+        </div>
+
+        <div class="flex flex-col items-center text-xl space-y-4 mt-8 gap-y-10">
+          <a href="#" class="text-white">Beranda</a>
+          <a href="#" class="text-white">MasukanBuku</a>
+          <a href="#" class="text-white">Tentang</a>
+        </div>
+      </div>
+
+      <!-- Mobile Search (Hidden on Desktop) -->
+      <div class="search lg:hidden hidden absolute right-0 bottom-0" id="mobile-search">
+        <form action="" class="mr-14 md:mr-20">
+          <input type="text" placeholder="nyari buku apa nih ?"
+          class="p-1 box-border rounded-sm md:w-64 md:p-2">
+        </form>
+      </div>
+    </nav>
+
+
+    <section class="flex flex-col bg-blue-400 p-3 w-full overflow-hidden">
+      <!-- judul section -->
+      <div
+        class="bg-slate-600 p-3 mx-auto my-5 rounded-xl lg:w-1/2 text-nowrap shadow-sm sm:w-full md:w-max"
+      >
+        <h3 class="text-white text-center lg:text-2xl md:text-xl" id="home">
+          Technology and Programming Languages 🚀
+        </h3>
+      </div>
+
+      <!-- card books -->
+      <div x-data="{ books: window.booksData }">
+        <div class="flex flex-wrap">
+          <template x-for="book in books" :key="book.title">
+            <div class="w-1/2 sm:w-1/4 lg:w-1/6 px-2 mb-4">
+              <div class="bg-slate-200 shadow-xl rounded h-max text-center p-2">
+                <img :src="book.cover" class="w-full h-52 shadow-lg lg:h-64" :alt="book.title" />
+                <div class="flex flex-col w-full">
+                  <h5
+                    class="text-lg font-light text-nowrap text-ellipsis overflow-hidden"
+                    x-text="book.title"
+                  ></h5>
+
+                  <div class="mt-1">
+                    <a :href="book.pdf"  download target="_blank"
+                    class="inline-block mr-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="bi bi-arrow-down-circle-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+                        />
+                      </svg>
+                    </a>
+
+                    <a href="#"  @click.prevent="shareBook(book)" class="inline-block ml-3">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-share"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <section class="flex flex-col bg-red-400 p-3 w-full overflow-hidden">
+      <!-- judul section -->
+      <div
+        class="bg-slate-600 p-3 mx-auto my-5 rounded-xl lg:w-1/2 text-nowrap shadow-sm sm:w-full md:w-max"
+      >
+        <h3 class="text-white text-center lg:text-2xl md:text-xl" id="home">
+          Selft Development and Entrepeneurship 🧭
+        </h3>
+      </div>
+
+      <!-- card books -->
+      <div x-data="{ books: window.booksData2 }">
+        <div class="flex flex-wrap">
+          <template x-for="book in books" :key="book.title">
+            <div class="w-1/2 sm:w-1/4 lg:w-1/6 px-2 mb-4">
+              <div class="bg-slate-200 shadow-lg rounded h-max text-center p-2">
+                <img :src="book.cover" class="w-full h-52 shadow-lg lg:h-64" :alt="book.title" />
+                <div class="flex flex-col w-full">
+                  <h5
+                    class="text-lg font-light text-nowrap text-ellipsis overflow-hidden"
+                    x-text="book.title"
+                  ></h5>
+
+                  <div class="mt-1">
+                    <!-- tombol unduh -->
+                    <a :href="book.pdf" download target="_blank" class="inline-block mr-2 ">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="20"
+                        height="20"
+                        fill="currentColor"
+                        class="bi bi-arrow-down-circle-fill"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+                        />
+                      </svg>
+                    </a>
+
+                    <!-- tombol bagikan -->
+                    <a href="#" @click.prevent="shareBook(book)" class="inline-block ml-2">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        width="16"
+                        height="16"
+                        fill="currentColor"
+                        class="bi bi-share"
+                        viewBox="0 0 16 16"
+                      >
+                        <path
+                          d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"
+                        />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </template>
+        </div>
+      </div>
+    </section>
+
+    <footer class="w-full h-max bg-slate-950">
+      <div>
+        <p class="text-white p-5 text-justify text-wrap">
+          &copy; 2024 Bacalah. All rights reserved to the original authors and publishers of the
+          books. This website is a non-commercial project created solely for educational purposes by
+          the developer. The developer does not claim any ownership over the content, nor does the
+          developer seek any profit from it. The books provided are for reading purposes only, and
+          no fees are charged to the users.
+        </p>
+      </div>
+    </footer>
+
+    <script>
+      feather.replace();
+    </script>
+
+    <script src="script.js"></script>
+    <script src="../node_modules/feather-icons/dist/feather.js"></script>
+  </body>
+</html>
