@@ -1,3 +1,10 @@
+import Swal from "sweetalert2";
+
+function alert3(){
+  swal.fire('your book is being downloaded')
+}
+
+
 // Toggle mobile menu
 document.getElementById("menu-button").addEventListener("click", function () {
   document.getElementById("mobile-menu").classList.remove("translate-x-full");
@@ -49,3 +56,4 @@ function shareBook(book) {
   // Pilih platform yang diinginkan (contoh: buka WhatsApp)
   window.open(whatsappLink, '_blank');
 }
+

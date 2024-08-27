@@ -8,6 +8,7 @@
     "build": " npx tailwindcss -i ./src/css/input.css -o ./public/css/style.css --watch"
   },
   "dependencies": {
-    "feather-icons": "^4.29.2"
+    "feather-icons": "^4.29.2",
+    "sweetalert2": "^11.12.4"
   }
 }

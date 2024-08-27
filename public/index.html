@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>Bacalah</title>
 
     <link rel="stylesheet" href="css/style.css" />
 
@@ -46,13 +46,13 @@
 
       <!-- Menu Links (Hidden on Mobile) -->
       <div class="flex-grow basis-1/6 hidden gap-24 items-center justify-center text-xl lg:flex md:hidden">
-        <a href="#" class="relative inline-block px-2 py-1 text-gray-800 group">
+        <a href="index.html" class="relative inline-block px-2 py-1 text-gray-800 group">
           Beranda
           <span
             class="absolute bottom-0 left-0 h-1 bg-slate-950 transition-all duration-300 ease-in-out w-0 group-hover:w-full"
           ></span>
         </a>
-        <a href="#" class="relative inline-block px-2 py-1 text-gray-800 group">
+        <a href="masukanBuku.html" class="relative inline-block px-2 py-1 text-gray-800 group">
           MasukanBuku
           <span
             class="absolute bottom-0 left-0 h-1 bg-slate-950 transition-all duration-300 ease-in-out w-0 group-hover:w-full"
@@ -138,7 +138,7 @@
 
                   <div class="mt-1">
                     <a :href="book.pdf"  download target="_blank"
-                    class="inline-block mr-3">
+                    class="inline-block mr-3" onclick="swal.fire('your book is being downloaded')">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"
@@ -153,7 +153,7 @@
                       </svg>
                     </a>
 
-                    <a href="#"  @click.prevent="shareBook(book)" class="inline-block ml-3">
+                    <a href="#" class="inline-block ml-3" onclick="alert3()">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="16"
@@ -201,7 +201,7 @@
 
                   <div class="mt-1">
                     <!-- tombol unduh -->
-                    <a :href="book.pdf" download target="_blank" class="inline-block mr-2 ">
+                    <a :href="book.pdf" download target="_blank" class="inline-block mr-2" onclick="swal.fire('your book is being downloaded')">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"
@@ -258,5 +258,8 @@
 
     <script src="script.js"></script>
     <script src="../node_modules/feather-icons/dist/feather.js"></script>
+    <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
+
+
   </body>
 </html>
