@@ -10,10 +10,8 @@
     <!-- alpine.js -->
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="books.js"></script>
-
   </head>
-  <body>
-
+  <body class="">
     <!-- navigasi -->
     <nav class="flex flex-row bg-green-400 h-24 p-3 md:p-4 w-full sticky top-0 z-10 shadow-md">
       <!-- Logo dan Link Utama -->
@@ -45,7 +43,9 @@
       </div>
 
       <!-- Menu Links (Hidden on Mobile) -->
-      <div class="flex-grow basis-1/6 hidden gap-24 items-center justify-center text-xl lg:flex md:hidden">
+      <div
+        class="flex-grow basis-1/6 hidden gap-24 items-center justify-center text-xl lg:flex md:hidden"
+      >
         <a href="index.html" class="relative inline-block px-2 py-1 text-gray-800 group">
           Beranda
           <span
@@ -89,8 +89,7 @@
       <!-- Mobile Menu (Hidden on Desktop) -->
       <div
         id="mobile-menu"
-        class="fixed top-0 right-0 h-full w-64 md:w-80 bg-black transform translate-x-full transition-transform
-         duration-300 ease-in-out"
+        class="fixed top-0 right-0 h-full w-64 md:w-80 bg-black transform translate-x-full transition-transform duration-300 ease-in-out"
       >
         <div class="flex justify-end p-4">
           <button id="close-menu" class="text-3xl text-white hover:">❎</button>
@@ -106,8 +105,11 @@
       <!-- Mobile Search (Hidden on Desktop) -->
       <div class="search lg:hidden hidden absolute right-0 bottom-0" id="mobile-search">
         <form action="" class="mr-14 md:mr-20">
-          <input type="text" placeholder="nyari buku apa nih ?"
-          class="p-1 box-border rounded-sm md:w-64 md:p-2">
+          <input
+            type="text"
+            placeholder="nyari buku apa nih ?"
+            class="p-1 box-border rounded-sm md:w-64 md:p-2"
+          />
         </form>
       </div>
     </nav>
@@ -116,18 +118,19 @@
     <section class="flex flex-col bg-blue-400 p-3 w-full overflow-hidden">
       <!-- judul section -->
       <div
-        class="bg-slate-600 p-3 mx-auto my-5 rounded-xl lg:w-1/2 text-wrap shadow-sm sm:w-full md:w-max"
-      >
+        class="bg-slate-600 p-3 mx-auto my-5 rounded-xl lg:w-1/2 text-wrap shadow-sm sm:w-full md:w-max">
         <h3 class="text-white text-center lg:text-2xl md:text-xl" id="home">
           Technology and Programming Languages 🚀
         </h3>
       </div>
 
-      <!-- card books -->
-      <div x-data="{ books: window.booksData }">
+      <!-- Cards Section -->
+      <div x-data="{ books: window.booksData, selectedBook: null }">
+
         <div class="flex flex-wrap">
           <template x-for="book in books" :key="book.title">
             <div class="w-1/2 sm:w-1/4 lg:w-1/6 px-2 mb-4">
+              <!-- Card -->
               <div class="bg-slate-200 shadow-xl rounded h-max text-center p-2">
                 <img :src="book.cover" class="w-full h-52 shadow-lg lg:h-64" :alt="book.title" />
                 <div class="flex flex-col w-full">
@@ -137,8 +140,13 @@
                   ></h5>
 
                   <div class="mt-1">
-                    <a :href="book.pdf"  download target="_blank"
-                    class="inline-block mr-3" onclick="swal.fire('your book is being downloaded')">
+                    <a
+                      :href="book.pdf"
+                      title="download this book"
+                      download
+                      target="_blank"
+                      class="inline-block mr-3"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"
@@ -153,17 +161,29 @@
                       </svg>
                     </a>
 
-                    <a href="#" class="inline-block ml-3" onclick="alert3()">
+                    <a
+                      href="#"
+                      @click.prevent="selectedBook = book"
+                      class="inline-block ml-3"
+                      title="more information"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
+                        width="20"
+                        height="20"
                         fill="currentColor"
-                        class="bi bi-share"
+                        class="bi bi-journal-bookmark-fill"
                         viewBox="0 0 16 16"
                       >
                         <path
-                          d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"
+                          fill-rule="evenodd"
+                          d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z"
+                        />
+                        <path
+                          d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"
+                        />
+                        <path
+                          d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"
                         />
                       </svg>
                     </a>
@@ -173,7 +193,35 @@
             </div>
           </template>
         </div>
+
+        <!-- Modal -->
+        <div x-show="selectedBook" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div class="bg-slate-950 p-5 rounded-lg w-11/12 md:w-1/2 lg:w-1/3">
+            <div class="text-right">
+              <button @click="selectedBook = null" class="text-white">X</button>
+            </div>
+
+            <h1 class="text-white text-2xl sm:text-xs mb-4 text-center capitalize">Information about this book</h1>
+            <div class="flex flex-row">
+
+              <div class="w-full h-full mr-5 basis-1/2">
+                <img :src="selectedBook.cover" class="w-48 h-full" :alt="selectedBook.title" />
+              </div>
+
+              <div class="basis-1/2" >
+                <p class="text-white text-left sm:text-xl">
+                  <strong>Author : </strong><span x-text="selectedBook.title"></span>
+                </p>
+
+              </div>
+            
+            </div>
+           
+
+          </div>
+        </div>
       </div>
+
     </section>
 
     <section class="flex flex-col bg-red-400 p-3 w-full overflow-hidden">
@@ -201,7 +249,13 @@
 
                   <div class="mt-1">
                     <!-- tombol unduh -->
-                    <a :href="book.pdf" download target="_blank" class="inline-block mr-2" onclick="swal.fire('your book is being downloaded')">
+                    <a
+                      :href="book.pdf"
+                      download
+                      target="_blank"
+                      class="inline-block mr-2"
+                      onclick="swal.fire('your book is being downloaded')"
+                    >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="20"
@@ -217,17 +271,24 @@
                     </a>
 
                     <!-- tombol bagikan -->
-                    <a href="#" @click.prevent="shareBook(book)" class="inline-block ml-2">
+                    <a href="#" class="inline-block ml-3" title="more information">
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
-                        width="16"
-                        height="16"
+                        width="20"
+                        height="20"
                         fill="currentColor"
-                        class="bi bi-share"
+                        class="bi bi-journal-bookmark-fill"
                         viewBox="0 0 16 16"
                       >
                         <path
-                          d="M13.5 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3M11 2.5a2.5 2.5 0 1 1 .603 1.628l-6.718 3.12a2.5 2.5 0 0 1 0 1.504l6.718 3.12a2.5 2.5 0 1 1-.488.876l-6.718-3.12a2.5 2.5 0 1 1 0-3.256l6.718-3.12A2.5 2.5 0 0 1 11 2.5m-8.5 4a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3m11 5.5a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3"
+                          fill-rule="evenodd"
+                          d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z"
+                        />
+                        <path
+                          d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"
+                        />
+                        <path
+                          d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"
                         />
                       </svg>
                     </a>
@@ -259,7 +320,5 @@
     <script src="script.js"></script>
     <script src="../node_modules/feather-icons/dist/feather.js"></script>
     <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-
-
   </body>
 </html>

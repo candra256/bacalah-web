@@ -1,8 +1,3 @@
-import Swal from "sweetalert2";
-
-function alert3(){
-  swal.fire('your book is being downloaded')
-}
 
 
 // Toggle mobile menu
@@ -15,6 +10,7 @@ document.getElementById("close-menu").addEventListener("click", function () {
   document.getElementById("mobile-menu").classList.remove("translate-x-0");
   document.getElementById("mobile-menu").classList.add("translate-x-full");
 });
+
 
 
 // mobile search
@@ -43,17 +39,9 @@ document.addEventListener("click", (event) => {
 });
 
 
-// bagikan
-function shareBook(book) {
-  const shareText = `${book.title} - ${book.pdf}`;
-  
-  // Buat link untuk WhatsApp
-  const whatsappLink = `https://wa.me/?text=${encodeURIComponent(shareText)}`;
-  
-  // Buat link untuk Facebook
-  const facebookLink = `https://www.facebook.com/sharer/sharer.php?u=${encodeURIComponent(book.pdf)}`;
-  
-  // Pilih platform yang diinginkan (contoh: buka WhatsApp)
-  window.open(whatsappLink, '_blank');
-}
+
+
+
+
+
 

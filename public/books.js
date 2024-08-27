@@ -1,6 +1,6 @@
 // books.js
 window.booksData = [
-     { title: 'Peter Norton, Alex ..', cover:'img/cover (1).png', pdf: 'pdf/begining_python.pdf' },
+     { title: 'Peter Norton, Alex Samuel, David Aitel, Eric Foster-Johnson, Leonard Richardson, Jason Diamond, Aleatha Parker, Michael Robert', cover:'img/cover (1).png', pdf: 'pdf/begining_python.pdf' },
      { title: 'Will McGugan', cover: 'img/cover (2).png', pdf: 'pdf/game_dev_python.pdf' },
      { title: 'Kevin Warwick', cover: 'img/cover (3).png', pdf: 'pdf/artificial_intelegence.pdf' },
      { title: 'Dr. Joseph Teguh santoso, S.kom , M.kom', cover: 'img/cover (4).png', pdf: 'pdf/analis_big_data.pdf' },
