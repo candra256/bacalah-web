@@ -12,11 +12,10 @@ document.getElementById("close-menu").addEventListener("click", function () {
 });
 
 
-
+// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 // mobile search
 const searchButton = document.querySelector("#search-button");
 const search = document.querySelector("#mobile-search");
-
 
 
 // Add hidden class on page load to ensure mobile search is hidden initially
@@ -40,7 +39,6 @@ document.addEventListener("click", (event) => {
     search.classList.add("hidden");
   }
 });
-
 
 
 

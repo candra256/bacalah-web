@@ -1,20 +1,120 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-     <meta charset="UTF-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <title>Document</title>
-     <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-     <!--  -->
-     <h1 id="tes" onclick="swal.fire('selamat datang')" class="cursor-pointer">ada buku nganggur di perangkatmu ?</h1>
-     <p>upload bukumu dibawah ini , kami akan meninjaunya terlebih
-          dahulu , kemudian kami akan masukan sebagai daftar buku yang
-          ada di dalam website ini  
-     </p>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Masukkan Buku Digital</title>
+    <link rel="stylesheet" href="css/style.css" />
+    <style>
+      .loader {
+        border: 4px solid #f3f3f3;
+        border-top: 4px solid #3498db;
+        border-radius: 50%;
+        width: 24px;
+        height: 24px;
+        animation: spin 1s linear infinite;
+      }
 
-     <script src="script.js"></script>
-     <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
-</body>
+      @keyframes spin {
+        0% {
+          transform: rotate(0deg);
+        }
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class=" flex flex-col md:flex-row items-center justify-center">
+      <!-- Kiri -->
+      <div class="w-full md:w-1/2 p-8 bg-green-400">
+        <a href="index.html" class="text-2xl block mb-4">⬅</a>
+        <h1 class="text-3xl sm:text-2xl font-bold mb-4">Punya buku digital untuk di sumbangkan ?</h1>
+        <img src="https://via.placeholder.com/200x100" alt="Gambar Deskripsi" class="w-full mb-4" />
+        <p class="text-gray-700 text-justify">
+          jika ada , upload lah buku anda ke dalam website ini . kami akan meninjaunya dan
+          memprosesnya terlebih dahulu. kemudian akan kami beri tahu melalui emal bahwa buku yang
+          anda sudah anda kirimkan dapat atau tidak menjadi daftar buku yang berada di dalam website
+          ini .
+        </p>
+      </div>
+
+      <!-- Kanan -->
+      <div class="w-full md:w-1/2 flex items-center justify-center">
+        <div class="bg-white p-8 rounded shadow-md w-full max-w-md">
+          <div id="loadingIndicator" class="hidden text-center text-blue-500 mb-4">
+            <p>Uploading file...</p>
+          </div>
+
+          <div id="successMessage" class="hidden text-center text-green-500 mb-4">
+            <p>File uploaded successfully!</p>
+          </div>
+
+          <h2 class="text-2xl font-bold mb-6 text-center">Masukkan Buku Digital</h2>
+
+          <!-- Form untuk upload file -->
+          <div class="mb-4">
+            <label class="block text-gray-700 font-semibold mb-2">Upload File Buku Digital</label>
+            <div
+              class="border-2 border-dashed border-gray-300 p-6 text-center cursor-pointer hover:bg-gray-50"
+              id="dropzone"
+            >
+              <p class="text-gray-500">Klik atau drag & drop file di sini</p>
+              <input type="file" class="hidden" id="fileInput" accept=".pdf, .epub, .mobi" />
+            </div>
+          </div>
+
+          <!-- Form untuk Nama -->
+          <div class="mb-4">
+            <label for="nama" class="block text-gray-700 font-semibold mb-2">Nama</label>
+            <input
+              type="text"
+              id="nama"
+              name="nama"
+              placeholder="Nama Anda"
+              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <!-- Form untuk Email -->
+          <div class="mb-4">
+            <label for="email" class="block text-gray-700 font-semibold mb-2">Alamat Email</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              placeholder="Email Anda"
+              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+            />
+          </div>
+
+          <!-- Tombol Submit -->
+          <div class="text-center">
+            <button
+              class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+            >
+              Kirim
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <footer class="w-full h-max bg-slate-950">
+      <div>
+        <p class="text-white p-5 text-justify text-wrap">
+          &copy; 2024 Bacalah. All rights reserved to the original authors and publishers of the
+          books. This website is a non-commercial project created solely for educational purposes by
+          the developer. The developer does not claim any ownership over the content, nor does the
+          developer seek any profit from it. The books provided are for reading purposes only, and
+          no fees are charged to the users.
+        </p>
+      </div>
+    </footer>
+
+    <script src="script2.js"></script>
+    <script src="script.js"></script>
+  </body>
 </html>
