@@ -10,9 +10,25 @@
     <!-- alpine.js -->
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="books.js"></script>
+
+    <style>
+      @layer utilities {
+    .custom-scrollbar::-webkit-scrollbar {
+      width: 4px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-thumb {
+      background-color: #4caf50;
+      border-radius: 10px;
+    }
+
+    .custom-scrollbar::-webkit-scrollbar-track {
+      background: #2e7d32;
+    }
+  }
+    </style>
   </head>
   <body class="">
-
     <!-- navigasi -->
     <nav class="flex flex-row bg-green-400 h-24 p-3 md:p-4 w-full sticky top-0 z-10 shadow-md">
       <!-- Logo dan Link Utama -->
@@ -115,12 +131,12 @@
       </div>
     </nav>
 
-
     <!-- tecnology and programing laguage -->
     <section class="flex flex-col bg-blue-400 p-3 w-full overflow-hidden">
       <!-- judul section -->
       <div
-        class="bg-slate-600 p-3 mx-auto my-5 rounded-xl text-wrap shadow-sm sm:w-full md:w-max lg:w-max">
+        class="bg-slate-600 p-3 mx-auto my-5 rounded-xl text-wrap shadow-sm sm:w-full md:w-max lg:w-max"
+      >
         <h3 class="text-white text-center lg:text-2xl md:text-xl" id="home">
           Technology and Programming Languages 🚀
         </h3>
@@ -128,7 +144,6 @@
 
       <!-- Cards Section -->
       <div x-data="{ books: window.booksData, selectedBook: null }">
-
         <div class="flex flex-wrap">
           <template x-for="book in books" :key="book.title">
             <div class="w-1/2 sm:w-1/4 lg:w-1/6 px-2 mb-4">
@@ -136,7 +151,6 @@
               <div class="bg-slate-200 shadow-xl rounded h-max text-center p-2">
                 <img :src="book.cover" class="w-full h-52 lg:h-64" :alt="book.title" />
                 <div class="flex flex-col w-full">
-
                   <div class="mt-2">
                     <a
                       :href="book.pdf"
@@ -194,41 +208,51 @@
         </div>
 
         <!-- Modal -->
-        <div x-show="selectedBook" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div class="bg-slate-950 p-5 rounded-lg w-11/12 md:w-1/2 lg:w-1/3 modal ">
+        <div
+          x-show="selectedBook"
+          class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        >
+          <div class="bg-slate-950 p-5 rounded-lg w-11/12 md:w-1/2 lg:w-1/3">
             <div class="text-right">
               <button @click="selectedBook = null" class="text-white">X</button>
-              <h1 class="text-white text-2xl mb-4 text-center capitalize">More Information</h1>
+              <h6 class="text-white text-2xl mb-4 text-center capitalize">More Information</h6>
             </div>
 
-            
-            <div class="flex flex-row">
-
+            <div class="flex md:flex-row lg:flex-row sm:flex-row-reverse">
               <div class="w-full h-full mr-5 basis-1/2">
-                <img :src="selectedBook.cover" class="w-48 h-full" :alt="selectedBook.title" />
+                <img :src="selectedBook.cover" class="w-48 h-full" />
               </div>
 
-              <div class="basis-1/2" >
-                <p class="text-white text-left sm:text-xl">
+              <div class="basis-1/2 max-h-64 overflow-y-auto custom-scrollbar">
+          
+
+                <p class="text-white text-justify sm:text-xl">
+                  <strong>Author : </strong><span x-text="selectedBook.title"></span>
+                </p>
+                <br>
+                <p class="text-white text-justify sm:text-xl">
                   <strong>Author : </strong><span x-text="selectedBook.title"></span>
                 </p>
 
-              </div>
-            
-            </div>
-           
+             
 
+               
+       
+
+              
+              </div>
+            </div>
           </div>
         </div>
       </div>
-
     </section>
 
     <!-- selft development and entrepeneurship -->
     <section class="flex flex-col bg-red-400 p-3 w-full overflow-hidden">
       <!-- judul section -->
       <div
-        class="bg-slate-600 p-3 mx-auto my-5 rounded-xl lg:w-max text-wrap shadow-sm sm:w-full md:w-max">
+        class="bg-slate-600 p-3 mx-auto my-5 rounded-xl lg:w-max text-wrap shadow-sm sm:w-full md:w-max"
+      >
         <h3 class="text-white text-center lg:text-2xl md:text-xl">
           Selft Development and Entrepeneurship 🧭
         </h3>
@@ -236,7 +260,6 @@
 
       <!-- Cards Section -->
       <div x-data="{ books: window.booksData2, selectedBook: null }">
-
         <div class="flex flex-wrap">
           <template x-for="book in books" :key="book.title">
             <div class="w-1/2 sm:w-1/4 lg:w-1/6 px-2 mb-4">
@@ -244,8 +267,6 @@
               <div class="bg-slate-200 shadow-xl rounded h-max text-center p-2">
                 <img :src="book.cover" class="w-full h-52 lg:h-64" :alt="book.title" />
                 <div class="flex flex-col w-full">
-
-
                   <div class="mt-2">
                     <a
                       :href="book.pdf"
@@ -303,58 +324,53 @@
         </div>
 
         <!-- Modal -->
-        <div x-show="selectedBook" class=" fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div class="bg-slate-950 p-5 rounded-lg w-11/12 md:w-1/2 lg:w-1/3 h-56">
+
+        <div
+          x-show="selectedBook"
+          class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
+        >
+          <div class="bg-slate-950 p-3 rounded-lg w-11/12 h-max md:w-1/2 lg:w-1/3">
             <div class="text-right">
               <button @click="selectedBook = null" class="text-white">X</button>
               <h6 class="text-white text-2xl mb-4 text-center capitalize">More Information</h6>
             </div>
 
-            
             <div class="flex flex-row">
-
-              <div class="w-full h-full mr-5 basis-1/2">
-                <img :src="selectedBook.cover" class="w-48 h-full" :alt="selectedBook.title" />
+              <div class="w-full h-full mr-2 basis-1/2">
+                <img :src="selectedBook.cover" class="w-48 h-full" />
               </div>
 
-              <div class="basis-1/2 overflow-y-auto" >
-                <p class="text-white text-left sm:text-xl">
+              <div class="basis-1/2 max-h-64 overflow-y-auto custom-scrollbar bg-green-400">
+                <p class="text-white text-left"><strong>Author : </strong><span x-text="selectedBook.title"></span></p>
+
+                <p class="text-white text-start">
                   <strong>Author : </strong><span x-text="selectedBook.title"></span>
                 </p>
 
-                <p class="text-white text-left sm:text-xl">
-                  <strong>publishers : </strong><span x-text="selectedBook.title"></span>
+                <p class="text-white text-start">
+                  <strong>Author : </strong><span x-text="selectedBook.title"></span>
                 </p>
 
-                <p class="text-white text-left sm:text-xl">
-                  <strong>publishers : </strong><span x-text="selectedBook.title"></span>
+                <p class="text-white text-start">
+                  <strong>Author : </strong><span x-text="selectedBook.title"></span>
                 </p>
 
-                <p class="text-white text-left sm:text-xl">
-                  <strong>publishers : </strong><span x-text="selectedBook.title"></span>
+                <p class="text-white text-start">
+                  <strong>Author : </strong><span x-text="selectedBook.title"></span>
                 </p>
 
-                <p class="text-white text-left sm:text-xl">
-                  <strong>publishers : </strong><span x-text="selectedBook.title"></span>
-                </p>
-                <p class="text-white text-left sm:text-xl">
-                  <strong>publishers : </strong><span x-text="selectedBook.title"></span>
-                </p>
-                <p class="text-white text-left sm:text-xl">
-                  <strong>publishers : </strong><span x-text="selectedBook.title"></span>
+                <p class="text-white text-start">
+                  <strong>Author : </strong><span x-text="selectedBook.title"></span>
                 </p>
 
+                
               </div>
-            
             </div>
-           
-
           </div>
         </div>
+
       </div>
-
     </section>
-
 
     <footer class="w-full h-max bg-slate-950">
       <div>
