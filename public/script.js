@@ -17,9 +17,12 @@ document.getElementById("close-menu").addEventListener("click", function () {
 const searchButton = document.querySelector("#search-button");
 const search = document.querySelector("#mobile-search");
 
+
+
 // Add hidden class on page load to ensure mobile search is hidden initially
 window.onload = () => {
   search.classList.add("hidden");
+  
 };
 
 // Toggle hidden class when search button is clicked
