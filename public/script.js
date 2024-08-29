@@ -11,6 +11,10 @@ document.getElementById("close-menu").addEventListener("click", function () {
   document.getElementById("mobile-menu").classList.add("translate-x-full");
 });
 
+document.querySelector('.unduh').addEventListener("click", function(){
+  sukses();
+})
+
 
 // ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 // mobile search
@@ -39,6 +43,18 @@ document.addEventListener("click", (event) => {
     search.classList.add("hidden");
   }
 });
+
+
+
+
+function sukses() {
+  Swal.fire({
+    title: "Success!",
+    text: "buku mu sedang di download",
+    icon: "success",
+    confirmButtonText: "OK",
+  });
+}
 
 
 

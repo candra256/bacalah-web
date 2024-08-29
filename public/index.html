@@ -11,6 +11,8 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="books.js"></script>
 
+    <script src="sweetalert2.all.min.js"></script>
+
     <style>
       @layer utilities {
         .custom-scrollbar::-webkit-scrollbar {
@@ -226,11 +228,11 @@
             </div>
 
             <div class="flex flex-row md:justify-start">
-              <div class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/4">
+              <div class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/4 lg:basis-1/2">
                 <img :src="selectedBook.cover" class="w-48 h-full" />
               </div>
 
-              <div class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar">
+              <div class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2">
                 <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
                   <strong>Author : </strong><span x-text="selectedBook.title"></span>
                 </p>
@@ -271,7 +273,7 @@
                       title="download this book"
                       download
                       target="_blank"
-                      class="inline-block mr-3"
+                      class="inline-block mr-3 unduh"
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -336,11 +338,11 @@
             </div>
 
             <div class="flex flex-row md:justify-start">
-              <div class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/4">
+              <div class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/4 lg:basis-1/2">
                 <img :src="selectedBook.cover" class="w-48 h-full" />
               </div>
 
-              <div class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar">
+              <div class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2">
                 <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
                   <strong>Author : </strong><span x-text="selectedBook.title"></span>
                 </p>
