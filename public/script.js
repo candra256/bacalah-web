@@ -11,9 +11,20 @@ document.getElementById("close-menu").addEventListener("click", function () {
   document.getElementById("mobile-menu").classList.add("translate-x-full");
 });
 
-document.querySelector('.unduh').addEventListener("click", function(){
+document.getElementById('unduh').addEventListener("click", function(){
   sukses();
 })
+
+g
+function sukses() {
+  Swal.fire({
+    title: "fitur belum tersedia",
+    text: "fitur pencarian akan tersedia ketika jumlah buku sudah lebih dari 30",
+    confirmButtonText: "OK",
+  });
+}
+
+
 
 
 // ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
@@ -47,14 +58,7 @@ document.addEventListener("click", (event) => {
 
 
 
-function sukses() {
-  Swal.fire({
-    title: "Success!",
-    text: "buku mu sedang di download",
-    icon: "success",
-    confirmButtonText: "OK",
-  });
-}
+
 
 
 

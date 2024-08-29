@@ -11,7 +11,6 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="books.js"></script>
 
-    <script src="sweetalert2.all.min.js"></script>
 
     <style>
       @layer utilities {
@@ -88,7 +87,7 @@
       <!-- Form Pencarian (Hidden on Mobile) -->
       <form
         class="items-center flex-grow-0 w-[20rem] p-1 hidden md:hidden lg:flex sm:flex"
-        role="search"
+        role="search" id="unduh" 
       >
         <input
           class="w-full mr-2 rounded-md p-3 shadow-md"
@@ -265,15 +264,19 @@
                   :src="book.cover"
                   class="w-full h-44 sm:h-52 md:h-52 lg:h-64"
                   :alt="book.title"
+                  
                 />
                 <div class="flex flex-col w-full">
                   <div class="mt-2">
                     <a
+                    
                       :href="book.pdf"
                       title="download this book"
                       download
                       target="_blank"
-                      class="inline-block mr-3 unduh"
+                      class="inline-block mr-3"
+
+                     
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -282,6 +285,7 @@
                         fill="currentColor"
                         class="bi bi-arrow-down-circle-fill"
                         viewBox="0 0 16 16"
+                        
                       >
                         <path
                           d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
@@ -366,5 +370,6 @@
     </footer>
 
     <script src="script.js"></script>
+    <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
   </body>
 </html>
