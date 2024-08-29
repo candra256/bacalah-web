@@ -1,7 +1,7 @@
 // books.js
 window.booksData = [
 
-     {  title: 'Peter Norton, Alex Samuel, David Aitel, Eric Foster-Johnson, Leonard Richardson, Jason Diamond, Aleatha Parker, Michael Robert',
+     {  title: 'Peter Norton, Alex Samuel ...',
         cover:'img/cover (1).png', 
         pdf: 'pdf/begining_python.pdf' },
 
