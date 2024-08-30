@@ -11,19 +11,6 @@ document.getElementById("close-menu").addEventListener("click", function () {
   document.getElementById("mobile-menu").classList.add("translate-x-full");
 });
 
-document.getElementById('unduh').addEventListener("click", function(){
-  sukses();
-})
-
-g
-function sukses() {
-  Swal.fire({
-    title: "fitur belum tersedia",
-    text: "fitur pencarian akan tersedia ketika jumlah buku sudah lebih dari 30",
-    confirmButtonText: "OK",
-  });
-}
-
 
 
 
