@@ -11,7 +11,6 @@
     <script src="//unpkg.com/alpinejs" defer></script>
     <script src="books.js"></script>
 
-
     <style>
       @layer utilities {
         .custom-scrollbar::-webkit-scrollbar {
@@ -87,7 +86,8 @@
       <!-- Form Pencarian (Hidden on Mobile) -->
       <form
         class="items-center flex-grow-0 w-[20rem] p-1 hidden md:hidden lg:flex sm:flex"
-        role="search" id="unduh" 
+        role="search"
+        id="unduh"
       >
         <input
           class="w-full mr-2 rounded-md p-3 shadow-md"
@@ -132,8 +132,8 @@
       </div>
     </nav>
 
-     <!-- selft development and entrepeneurship -->
-     <section class="flex flex-col bg-blue-400 p-3 w-full overflow-hidden">
+    <!-- selft development and entrepeneurship -->
+    <section class="flex flex-col bg-blue-400 p-3 w-full overflow-hidden">
       <!-- judul section -->
       <div
         class="bg-slate-600 p-3 mx-auto my-5 rounded-xl lg:w-max text-wrap shadow-sm sm:w-full md:w-max"
@@ -219,21 +219,32 @@
         >
           <div class="bg-slate-950 p-3 rounded-lg w-11/12 h-max md:w-1/8 lg:w-1/3">
             <div class="relative text-center">
-              <button @click="selectedBook = null" class="text-white inline-block absolute right-0 top-0">X</button>
+              <button
+                @click="selectedBook = null"
+                class="text-white inline-block absolute right-0 top-0"
+              >
+                X
+              </button>
               <h6
-                class="text-white text-2xl mb-4 text-center inline-block capitalize sm:3xl md:text-3xl lg:text-3xl">
+                class="text-white text-2xl mb-4 text-center inline-block capitalize sm:3xl md:text-3xl lg:text-3xl"
+              >
                 More Information
               </h6>
             </div>
 
             <div class="flex flex-row md:justify-start">
               <div class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/4 lg:basis-1/2">
-                <img :src="selectedBook.cover" class="w-48 h-full" />
+                <template x-if="selectedBook && selectedBook.cover">
+                  <img :src="selectedBook.cover" class="w-48 h-full" />
+                </template>
               </div>
 
-              <div class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2">
+              <div
+                class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2"
+              >
                 <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
-                  <strong>Author : </strong><span x-text="selectedBook.title"></span>
+                  <strong>Author : </strong
+                  ><span x-text="selectedBook ? selectedBook.title : ''"></span>
                 </p>
               </div>
             </div>
@@ -264,19 +275,15 @@
                   :src="book.cover"
                   class="w-full h-44 sm:h-52 md:h-52 lg:h-64"
                   :alt="book.title"
-                  
                 />
                 <div class="flex flex-col w-full">
                   <div class="mt-2">
                     <a
-                    
                       :href="book.pdf"
                       title="download this book"
                       download
                       target="_blank"
                       class="inline-block mr-3"
-
-                     
                     >
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -285,7 +292,6 @@
                         fill="currentColor"
                         class="bi bi-arrow-down-circle-fill"
                         viewBox="0 0 16 16"
-                        
                       >
                         <path
                           d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
@@ -334,21 +340,32 @@
         >
           <div class="bg-slate-950 p-3 rounded-lg w-11/12 h-max md:w-1/8 lg:w-1/3">
             <div class="relative text-center">
-              <button @click="selectedBook = null" class="text-white inline-block absolute right-0 top-0">X</button>
+              <button
+                @click="selectedBook = null"
+                class="text-white inline-block absolute right-0 top-0"
+              >
+                X
+              </button>
               <h6
-                class="text-white text-2xl mb-4 text-center inline-block capitalize sm:3xl md:text-3xl lg:text-3xl">
+                class="text-white text-2xl mb-4 text-center inline-block capitalize sm:3xl md:text-3xl lg:text-3xl"
+              >
                 More Information
               </h6>
             </div>
 
             <div class="flex flex-row md:justify-start">
               <div class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/4 lg:basis-1/2">
-                <img :src="selectedBook.cover" class="w-48 h-full" />
+                <template x-if="selectedBook && selectedBook.cover">
+                  <img :src="selectedBook.cover" class="w-48 h-full" />
+                </template>
               </div>
 
-              <div class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2">
+              <div
+                class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2"
+              >
                 <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
-                  <strong>Author : </strong><span x-text="selectedBook.title"></span>
+                  <strong>Author : </strong
+                  ><span x-text="selectedBook ? selectedBook.title : ''"></span>
                 </p>
               </div>
             </div>

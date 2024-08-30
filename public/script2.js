@@ -21,13 +21,14 @@ dropzone.addEventListener("drop", (e) => {
 
 // Membuat elemen loading indicator dan success message
 const loadingIndicator = document.getElementById("loadingIndicator");
-const successMessage = document.getElementById("successMessage");
+// const successMessage = document.getElementById("successMessage");
 
 // Fungsi untuk menampilkan loading indicator success message
 function showLoading() {
   loadingIndicator.classList.remove("hidden");
-  successMessage.classList.add("hidden");
+  // successMessage.classList.add("hidden");
 }
+
 
 function hiddenLoading(){
     loadingIndicator.classList.add("hidden")
@@ -36,8 +37,14 @@ function hiddenLoading(){
 // Fungsi untuk menampilkan success message
 function showSuccess() {
   loadingIndicator.classList.add("hidden");
-  successMessage.classList.remove("hidden");
+  // successMessage.classList.remove("hidden");
 }
+
+// function hideSuccessMessage() {
+//   setTimeout(() => {
+//     successMessage.classList.add("hidden");
+//   }, 4000); // Sembunyikan setelah 3 detik (3000 ms)
+// }
 
 function alert() {
   Swal.fire({
@@ -50,7 +57,6 @@ function alert() {
 
 function alert2(){
     Swal.fire({
-
         text: "silahkan lengkapi data terlebih dahulu",
         confirmButtonText: 'OK'
     })
@@ -67,11 +73,7 @@ function resetForm() {
   document.getElementById("email").value = "";
 }
 
-function hideSuccessMessage() {
-  setTimeout(() => {
-    successMessage.classList.add("hidden");
-  }, 4000); // Sembunyikan setelah 3 detik (3000 ms)
-}
+
 
 // ................................................................................
 // Event listener untuk update teks dropzone saat file diupload
@@ -94,6 +96,7 @@ dropzone.addEventListener("drop", (e) => {
   }
 });
 
+
 // ......................................................................................
 // Event listener untuk submit tombol
 document.querySelector("button").addEventListener("click", (e) => {
@@ -107,8 +110,8 @@ document.querySelector("button").addEventListener("click", (e) => {
     setTimeout(() => {
       alert(); // Tampilkan pesan sukses setelah upload selesai
       resetForm();
-      hiddenLoading(); // Tampilkan indikator loading
-      // Reset form setelah upload selesai
+      hiddenLoading();
+
     }, 2000); // Simulasi delay 2 detik
   }
   else{

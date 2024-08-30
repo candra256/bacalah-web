@@ -1,5 +1,4 @@
 
-
 // Toggle mobile menu
 document.getElementById("menu-button").addEventListener("click", function () {
   document.getElementById("mobile-menu").classList.remove("translate-x-full");
