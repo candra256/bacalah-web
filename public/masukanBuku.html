@@ -45,7 +45,7 @@
       <!-- Kanan -->
       <div class="w-full md:w-full flex items-center justify-center">
         <div class="bg-white p-8 rounded w-full">
-          
+
           <div id="loadingIndicator" class="hidden text-center text-blue-500 mb-4">
             <p>Uploading file...</p>
           </div>
@@ -59,7 +59,7 @@
             <label class="block text-gray-700 font-semibold mb-2">Upload File Buku Digital</label>
             <div
               class="border-2 border-dashed border-gray-300 p-6 text-center cursor-pointer hover:bg-gray-50"
-              id="dropzone"
+              id="dropzone" role="button" aria-label="Dropzone untuk mengunggah file"
             >
 
               <p class="text-gray-500">Klik atau drag & drop file di sini</p>
@@ -93,7 +93,7 @@
 
           <!-- Tombol Submit -->
           <div class="text-center">
-            <button
+            <button id="submit"
               class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Kirim

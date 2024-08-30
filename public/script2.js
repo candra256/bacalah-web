@@ -21,32 +21,26 @@ dropzone.addEventListener("drop", (e) => {
 
 // Membuat elemen loading indicator dan success message
 const loadingIndicator = document.getElementById("loadingIndicator");
-// const successMessage = document.getElementById("successMessage");
+const submitButton = document.getElementById("submit")
+
 
 // Fungsi untuk menampilkan loading indicator success message
 function showLoading() {
   loadingIndicator.classList.remove("hidden");
-  // successMessage.classList.add("hidden");
+  submitButton.disabled = true
+ 
 }
 
 
 function hiddenLoading(){
     loadingIndicator.classList.add("hidden")
+    submitButton.disabled = false
+    
 }
 
-// Fungsi untuk menampilkan success message
-function showSuccess() {
-  loadingIndicator.classList.add("hidden");
-  // successMessage.classList.remove("hidden");
-}
 
-// function hideSuccessMessage() {
-//   setTimeout(() => {
-//     successMessage.classList.add("hidden");
-//   }, 4000); // Sembunyikan setelah 3 detik (3000 ms)
-// }
 
-function alert() {
+function alert1() {
   Swal.fire({
     title: "Success!",
     text: "Your file has been uploaded successfully!",
@@ -99,7 +93,7 @@ dropzone.addEventListener("drop", (e) => {
 
 // ......................................................................................
 // Event listener untuk submit tombol
-document.querySelector("button").addEventListener("click", (e) => {
+submitButton.addEventListener("click", (e) => {
   e.preventDefault(); // Mencegah submit form default
 
   // Cek apakah ada file yang dipilih
@@ -108,13 +102,14 @@ document.querySelector("button").addEventListener("click", (e) => {
 
     // Simulasikan proses upload
     setTimeout(() => {
-      alert(); // Tampilkan pesan sukses setelah upload selesai
+      alert1(); // Tampilkan pesan sukses setelah upload selesai
       resetForm();
       hiddenLoading();
 
     }, 2000); // Simulasi delay 2 detik
   }
-  else{
+  else if (fileInput.files.length === 0){
         alert2()
+        return;
   }
 });

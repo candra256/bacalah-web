@@ -788,10 +788,6 @@ video {
   flex-wrap: wrap;
 }
 
-.items-start {
-  align-items: flex-start;
-}
-
 .items-center {
   align-items: center;
 }
@@ -1080,11 +1076,6 @@ video {
   color: rgb(31 41 55 / var(--tw-text-opacity));
 }
 
-.text-green-500 {
-  --tw-text-opacity: 1;
-  color: rgb(34 197 94 / var(--tw-text-opacity));
-}
-
 .text-white {
   --tw-text-opacity: 1;
   color: rgb(255 255 255 / var(--tw-text-opacity));
@@ -1336,6 +1327,10 @@ video {
 
   .lg\:flex-row {
     flex-direction: row;
+  }
+
+  .lg\:justify-start {
+    justify-content: flex-start;
   }
 
   .lg\:text-2xl {
