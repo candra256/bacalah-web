@@ -24,44 +24,48 @@
         }
       }
     </style>
-
   </head>
 
   <body>
-    <div class=" flex flex-col md:flex-col lg:flex-row items-center justify-center">
+    <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
       <!-- Kiri -->
-      <div class="w-full md:w-full p-8 bg-green-400">
-        <a href="index.html" class="text-2xl block mb-4">⬅</a>
-        <h2 class="lg:text-3xl text-xl font-semibold mb-4 md:text-4xl text-black">Punya buku digital untuk di sumbangkan ?</h2>
-        <img src="img/bg1.jpg" alt="Gambar Deskripsi" class="w-full mb-4" />
-        <p class="text-black text-justify font-normal md:text-xl">
-          jika ada , upload lah buku anda ke dalam website ini . kami akan meninjaunya dan
-          memprosesnya terlebih dahulu. kemudian akan kami beri tahu melalui email bahwa buku yang
-          anda sudah kirimkan dapat atau tidak menjadi daftar buku yang berada di dalam website
-          ini .
+      <div class="p-8 bg-green-400">
+        <a href="index.html" class="text-3xl block mb-4">⬅</a>
+        <h2 class="lg:text-3xl text-xl font-semibold mb-4 md:text-4xl text-black">
+          Apakah Anda memiliki buku digital yang ingin disumbangkan?
+        </h2>
+        <img
+          src="img/bg1.jpg"
+          alt="Gambar Deskripsi"
+          class="w-full lg:w-full lg:h-64 lg:object-cover mb-4"
+        />
+        <p class="text-black text-justify font-normal md:text-xl lg:text-xl">
+          Jika ya, silakan unggah buku Anda melalui website ini. Kami akan meninjau dan memprosesnya
+          dengan cermat. Setelah itu, kami akan menghubungi Anda melalui email untuk memberikan
+          ucapan terima kasih atas kontribusi Anda dan memberitahukan apakah buku tersebut dapat
+          ditambahkan ke dalam koleksi pada website ini.
         </p>
       </div>
 
       <!-- Kanan -->
-      <div class="w-full md:w-full flex items-center justify-center">
-        <div class="bg-white p-8 rounded w-full">
-
+      <div class="p-8 flex items-center justify-center bg-red-300">
+        <div class="w-full">
           <div id="loadingIndicator" class="hidden text-center text-blue-500 mb-4">
             <p>Uploading file...</p>
           </div>
 
-  
           <h2 class="text-2xl font-bold mb-6 text-center">Masukkan Buku Digital</h2>
-
           <p>*anda juga bisa hanya mengupload file saja tanpa nama dan alamat email</p>
+
           <!-- Form untuk upload file -->
-          <div class="mb-4">
+          <div class="mb-4 mt-4">
             <label class="block text-gray-700 font-semibold mb-2">Upload File Buku Digital</label>
             <div
-              class="border-2 border-dashed border-gray-300 p-6 text-center cursor-pointer hover:bg-gray-50"
-              id="dropzone" role="button" aria-label="Dropzone untuk mengunggah file"
+              class="border-2 border-dashed border-white p-6 text-center cursor-pointer hover:bg-gray-50"
+              id="dropzone"
+              role="button"
+              aria-label="Dropzone untuk mengunggah file"
             >
-
               <p class="text-gray-500">Klik atau drag & drop file di sini</p>
               <input type="file" class="hidden" id="fileInput" accept=".pdf, .epub, .mobi" />
             </div>
@@ -92,8 +96,9 @@
           </div>
 
           <!-- Tombol Submit -->
-          <div class="text-center">
-            <button id="submit"
+          <div class="text-center mt-9">
+            <button
+              id="submit"
               class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
             >
               Kirim
@@ -101,19 +106,20 @@
           </div>
         </div>
       </div>
-    </div>
 
-    <footer class="w-full h-max bg-slate-950">
-      <div>
-        <p class="text-white p-5 text-justify text-wrap">
-          &copy; 2024 Bacalah. All rights reserved to the original authors and publishers of the
-          books. This website is a non-commercial project created solely for educational purposes by
-          the developer. The developer does not claim any ownership over the content, nor does the
-          developer seek any profit from it. The books provided are for reading purposes only, and
-          no fees are charged to the users.
-        </p>
-      </div>
-    </footer>
+      <!-- Footer -->
+      <footer class="lg:col-span-2 bg-slate-950 w-full">
+        <div>
+          <p class="text-white p-3 text-justify text-wrap">
+            &copy; 2024 Bacalah. All rights reserved to the original authors and publishers of the
+            books. This website is a non-commercial project created solely for educational purposes
+            by the developer. The developer does not claim any ownership over the content, nor does
+            the developer seek any profit from it. The books provided are for reading purposes only,
+            and no fees are charged to the users.
+          </p>
+        </div>
+      </footer>
+    </div>
 
     <script src="script2.js"></script>
     <script src="/node_modules/sweetalert2/dist/sweetalert2.all.min.js"></script>
