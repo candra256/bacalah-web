@@ -12,8 +12,6 @@ document.getElementById("close-menu").addEventListener("click", function () {
 
 
 
-
-// ,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,
 // mobile search
 const searchButton = document.querySelector("#search-button");
 const search = document.querySelector("#mobile-search");
@@ -40,6 +38,26 @@ document.addEventListener("click", (event) => {
     search.classList.add("hidden");
   }
 });
+
+
+function downloadBook(pdfUrl) {
+  Swal.fire({
+    title: 'Downloading',
+    text: 'Buku sedang diunduh, harap tunggu...',
+    icon: 'info',
+    showConfirmButton: false,
+    timer: 2000
+  }).then(() => {
+    const a = document.createElement('a');
+    a.href = pdfUrl;
+    a.download = pdfUrl.split('/').pop(); // Menentukan nama file berdasarkan URL
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+}
+
+
 
 
 
