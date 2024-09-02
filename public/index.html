@@ -29,6 +29,10 @@
           background: #2e7d32;
         }
       }
+
+      [x-cloak] {
+        display: none !important;
+      }
     </style>
   </head>
   <body class="">
@@ -58,7 +62,6 @@
 
       <!-- Menu Hamburger dan Ikon Pencarian -->
       <div class="flex items-center ml-auto">
-        <button id="search-button" class="lg:hidden text-white text-2xl mr-4 md:mr-8">🔍</button>
         <button id="menu-button" class="lg:hidden text-black text-2xl">☰</button>
       </div>
 
@@ -86,26 +89,7 @@
         </a>
       </div>
 
-      <!-- Form Pencarian (Hidden on Mobile) -->
-      <form
-        class="items-center flex-grow-0 w-[20rem] p-1 hidden md:hidden lg:flex sm:flex"
-        role="search"
-        id="unduh"
-      >
-        <input
-          class="w-full mr-2 rounded-md p-3 shadow-md"
-          style="height: 2.5rem"
-          type="search"
-          placeholder="nyari buku apa nih ?"
-          aria-label="Search"
-        />
-        <button
-          class="flex-shrink-0 bg-sky-500 text-white py-2 px-4 rounded-md shadow-md hover:bg-sky-950 focus:outline-none focus:ring-2 focus:ring-slate-700 focus:ring-opacity-50"
-          type="submit"
-        >
-          Cari
-        </button>
-      </form>
+    
 
       <!-- Mobile Menu (Hidden on Desktop) -->
       <div
@@ -123,256 +107,146 @@
         </div>
       </div>
 
-      <!-- Mobile Search (Hidden on Desktop) -->
-      <div class="search lg:hidden hidden absolute right-0 bottom-0" id="mobile-search">
-        <form action="" class="mr-14 md:mr-20">
-          <input
-            type="text"
-            placeholder="nyari buku apa nih ?"
-            class="p-1 box-border rounded-sm md:w-64 md:p-2"
-          />
-        </form>
-      </div>
+    
     </nav>
 
-    <!-- selft development and entrepeneurship -->
+    <!-- technology and programing laguage -->
     <section class="flex flex-col bg-blue-400 p-3 w-full overflow-hidden">
-      <!-- judul section -->
-      <div
-        class="bg-slate-600 p-3 mx-auto my-5 rounded-xl lg:w-max text-wrap shadow-sm sm:w-full md:w-max"
-      >
-        <h3 class="text-white text-center text-xs lg:text-2xl md:text-xl" id="home">
-          Technology and Programming Languages 🚀
-        </h3>
-      </div>
 
-      <!-- Cards Section -->
-      <div x-data="{ books: window.booksData, selectedBook: null }">
-        <div class="flex flex-wrap">
-          <template x-for="book in books" :key="book.title">
-            <div class="w-1/2 sm:w-1/4 lg:w-1/6 px-2 mb-4">
-              <!-- Card -->
-              <div class="bg-slate-200 shadow-xl rounded h-max text-center p-2">
-                <img
-                  :src="book.cover"
-                  class="w-full h-44 sm:h-52 md:h-52 lg:h-64"
-                  :alt="book.title"
-                />
-                <div class="flex flex-col w-full">
-                  <div class="mt-2">
-                    <a
-                      href="#"
-                      title="download this book"
-                      class="inline-block mr-3"
-                      @click.prevent="downloadBook(book.pdf)"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
-                        class="bi bi-arrow-down-circle-fill"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
-                        />
-                      </svg>
-                    </a>
-
-                    <a
-                      href="#"
-                      @click.prevent="selectedBook = book"
-                      class="inline-block ml-3"
-                      title="more information"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
-                        class="bi bi-journal-bookmark-fill"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z"
-                        />
-                        <path
-                          d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"
-                        />
-                        <path
-                          d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
+      <div x-data="bookList()">
+        <form class="mb-5 w-full lg:w-1/2 lg:my-5 lg:mx-auto" @submit.prevent="searchBooks">
+            <input
+                x-model="searchQuery"
+                @input="searchBooks"
+                class="w-full mr-2 rounded-md p-3 shadow-md"
+                style="height: 2.5rem"
+                type="search"
+                placeholder="Search for a book..."
+                aria-label="Search"
+            />
+         
+        </form>
+    
+        <!-- Tampilkan pesan jika tidak ada buku yang ditemukan -->
+        <template x-if="noBooksFound">
+            <div class="flex items-start justify-center h-screen">
+                <div class="text-center">
+                    
+                    <h2 class="text-2xl font-bold mb-2">No Books Found</h2>
+                    <p class="text-lg">Sorry, we couldn't find any books that match your search.</p>
                 </div>
-              </div>
             </div>
-          </template>
-        </div>
-
-        <!-- Modal -->
-
-        <div
-          x-show="selectedBook"
-          class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-        >
-          <div class="bg-slate-950 p-3 rounded-lg w-11/12 h-max md:w-1/8 lg:w-1/3">
-            <div class="relative text-center">
-              <button
-                @click="selectedBook = null"
-                class="text-white inline-block absolute right-0 top-0"
-              >
-                X
-              </button>
-              <h6
-                class="text-white text-2xl mb-4 text-center inline-block capitalize sm:3xl md:text-3xl lg:text-3xl"
-              >
-                More Information
-              </h6>
-            </div>
-
-            <div class="flex flex-row md:justify-start">
-              <div class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/4 lg:basis-1/2">
-                <template x-if="selectedBook && selectedBook.cover">
-                  <img :src="selectedBook.cover" class="w-48 h-full" />
+        </template>
+    
+        <!-- Cards Section -->
+        <template x-if="!noBooksFound">
+            <div class="flex flex-wrap">
+                <template x-for="book in filteredBooks" :key="book.title">
+                    <div class="w-1/2 sm:w-1/4 lg:w-1/6 px-2 mb-4">
+                        <!-- Card -->
+                        <div class="bg-slate-200 shadow-xl rounded h-max text-center p-2">
+                            <img
+                                :src="book.cover"
+                                class="w-full h-44 sm:h-52 md:h-52 lg:h-64"
+                                :alt="book.title"
+                            />
+                            <div class="flex flex-col w-full">
+                                <div class="mt-2">
+                                    <a
+                                        href="#"
+                                        title="download this book"
+                                        download
+                                        class="inline-block mr-3"
+                                        @click.prevent="downloadBook(book.pdf)"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="20"
+                                            height="20"
+                                            fill="currentColor"
+                                            class="bi bi-arrow-down-circle-fill"
+                                            viewBox="0 0 16 16"
+                                        >
+                                            <path
+                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+                                            />
+                                        </svg>
+                                    </a>
+    
+                                    <a
+                                        href="#"
+                                        @click.prevent="selectedBook = book"
+                                        class="inline-block ml-3"
+                                        title="more information"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            width="20"
+                                            height="20"
+                                            fill="currentColor"
+                                            class="bi bi-journal-bookmark-fill"
+                                            viewBox="0 0 16 16"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z"
+                                            />
+                                            <path
+                                                d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"
+                                            />
+                                            <path
+                                                d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"
+                                            />
+                                        </svg>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </template>
-              </div>
-
-              <div
-                class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2"
-              >
-                <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
-                  <strong>Author : </strong
-                  ><span x-text="selectedBook ? selectedBook.title : ''"></span>
-                </p>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- selft development and entrepeneurship -->
-    <section class="flex flex-col bg-red-400 p-3 w-full overflow-hidden">
-      <!-- judul section -->
-      <div
-        class="bg-slate-600 p-3 mx-auto my-5 rounded-xl lg:w-max text-wrap shadow-sm sm:w-full md:w-max"
-      >
-        <h3 class="text-white text-center text-xs lg:text-2xl md:text-xl">
-          Self-Development and Entrepeneurship 🧭
-        </h3>
-      </div>
-
-      <!-- Cards Section -->
-      <div x-data="{ books: window.booksData2, selectedBook: null }">
-        <div class="flex flex-wrap">
-          <template x-for="book in books" :key="book.title">
-            <div class="w-1/2 sm:w-1/4 lg:w-1/6 px-2 mb-4">
-              <!-- Card -->
-              <div class="bg-slate-200 shadow-xl rounded h-max text-center p-2">
-                <img
-                  :src="book.cover"
-                  class="w-full h-44 sm:h-52 md:h-52 lg:h-64"
-                  :alt="book.title"
-                />
-                <div class="flex flex-col w-full">
-                  <div class="mt-2">
-                    <a
-                    href="#"
-                    title="download this book"
-                    class="inline-block mr-3"
-                    @click.prevent="downloadBook(book.pdf)"
-                  >
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      width="20"
-                      height="20"
-                      fill="currentColor"
-                      class="bi bi-arrow-down-circle-fill"
-                      viewBox="0 0 16 16"
+        </template>
+    
+        <!-- Modal -->
+        <div
+            x-show="selectedBook"
+            x-cloak
+            x-transition:enter="transition ease-out duration-300"
+            x-transition:enter-start="opacity-0 transform scale-90"
+            x-transition:enter-end="opacity-100 transform scale-100"
+            @click.self="selectedBook = null"
+            class="fixed inset-0 flex items-center justify-center z-50"
+        >
+            <div class="bg-slate-950 p-3 rounded-lg w-11/12 h-max md:w-1/8 lg:w-1/3" @click.stop>
+                <div class="relative text-center">
+                    <h6
+                        class="text-white text-2xl mb-4 inline-block capitalize sm:3xl md:text-3xl lg:text-3xl"
                     >
-                      <path
-                        d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
-                      />
-                    </svg>
-                  </a>
-
-                    <a
-                      href="#"
-                      @click.prevent="selectedBook = book"
-                      class="inline-block ml-3"
-                      title="more information"
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="20"
-                        height="20"
-                        fill="currentColor"
-                        class="bi bi-journal-bookmark-fill"
-                        viewBox="0 0 16 16"
-                      >
-                        <path
-                          fill-rule="evenodd"
-                          d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z"
-                        />
-                        <path
-                          d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"
-                        />
-                        <path
-                          d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"
-                        />
-                      </svg>
-                    </a>
-                  </div>
+                        more information
+                    </h6>
                 </div>
-              </div>
+    
+                <div class="flex flex-row md:justify-start">
+                    <div class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/4 lg:basis-1/2">
+                        <template x-if="selectedBook && selectedBook.cover">
+                            <img :src="selectedBook.cover" class="w-48 h-full" />
+                        </template>
+                    </div>
+    
+                    <div
+                        class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2"
+                    >
+                        <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
+                            <strong>Author : </strong>
+                            <span x-text="selectedBook ? selectedBook.title : ''"></span>
+                        </p>
+                    </div>
+                </div>
             </div>
-          </template>
         </div>
-
-        <!-- Modal -->
-
-        <div
-          x-show="selectedBook"
-          class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50"
-        >
-          <div class="bg-slate-950 p-3 rounded-lg w-11/12 h-max md:w-1/8 lg:w-1/3">
-            <div class="relative text-center">
-              <button
-                @click="selectedBook = null"
-                class="text-white inline-block absolute right-0 top-0"
-              >
-                X
-              </button>
-              <h6
-                class="text-white text-2xl mb-4 text-center inline-block capitalize sm:3xl md:text-3xl lg:text-3xl"
-              >
-                More Information
-              </h6>
-            </div>
-
-            <div class="flex flex-row md:justify-start">
-              <div class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/4 lg:basis-1/2">
-                <template x-if="selectedBook && selectedBook.cover">
-                  <img :src="selectedBook.cover" class="w-48 h-full" />
-                </template>
-              </div>
-
-              <div
-                class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2"
-              >
-                <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
-                  <strong>Author : </strong
-                  ><span x-text="selectedBook ? selectedBook.title : ''"></span>
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
+    </div>
+    
+    
     </section>
 
     <footer class="w-full h-max bg-slate-950">
@@ -388,7 +262,5 @@
     </footer>
 
     <script src="script.js"></script>
-
-     
   </body>
 </html>
