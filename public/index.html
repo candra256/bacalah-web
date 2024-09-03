@@ -14,6 +14,14 @@
     <!-- sweetiealert2 -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
+    <!-- goggle font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Protest+Guerrilla&display=swap"
+      rel="stylesheet"
+    />
+
     <style>
       @layer utilities {
         .custom-scrollbar::-webkit-scrollbar {
@@ -33,6 +41,20 @@
       [x-cloak] {
         display: none !important;
       }
+
+      #back-to-top {
+        display: none; /* Mulai dengan menyembunyikan tombol */
+        transition: opacity 0.3s;
+      }
+      #back-to-top.show {
+        display: block;
+      }
+
+      .protest-guerrilla-regular {
+        font-family: "Protest Guerrilla", sans-serif;
+        font-weight: 400;
+        font-style: normal;
+      }
     </style>
   </head>
   <body class="">
@@ -40,6 +62,7 @@
     <nav class="flex flex-row bg-green-400 h-24 p-3 md:p-4 w-full sticky top-0 z-10 shadow-md">
       <!-- Logo dan Link Utama -->
       <a
+      style="font-family: protest-guerrilla-regular;"
         href="index.html"
         class="flex items-center cursor-pointer flex-shrink-0 basis-1/6 text-2xl md:text-5xl lg:text-4xl md:font-semibold text-nowrap font-bold"
       >
@@ -89,8 +112,6 @@
         </a>
       </div>
 
-    
-
       <!-- Mobile Menu (Hidden on Desktop) -->
       <div
         id="mobile-menu"
@@ -106,151 +127,157 @@
           <a href="tentang.html" class="text-white hover:text-blue-700">Tentang</a>
         </div>
       </div>
-
-    
     </nav>
 
-  
     <section class="flex flex-col bg-blue-400 p-3 w-full overflow-hidden">
-
       <div x-data="bookList()">
+        <!-- form pencarian -->
+        <!-- terhubung dengan fungsi searchBooks -->
         <form class="mb-5 w-full lg:w-1/2 lg:my-5 lg:mx-auto" @submit.prevent="searchBooks">
-            <input
-                x-model="searchQuery"
-                @input="searchBooks"
-                class="w-full mr-2 rounded-md p-3 shadow-md"
-                style="height: 2.5rem"
-                type="search"
-                placeholder="Search for a book..."
-                aria-label="Search"
-            />
-         
+          <input
+            x-model="searchQuery"
+            @input="searchBooks"
+            class="w-full mr-2 rounded-md p-3 shadow-md"
+            style="height: 2.5rem"
+            type="search"
+            placeholder="Cobalah tulis 'p' atau 'python' disini "
+            aria-label="Search"
+            id="home2"
+          />
         </form>
-    
+
         <!-- Tampilkan pesan jika tidak ada buku yang ditemukan -->
         <template x-if="noBooksFound">
-            <div class="flex items-start justify-center h-screen">
-                <div class="text-center">
-                    
-                    <h2 class="text-2xl font-bold mb-2">No Books Found</h2>
-                    <p class="text-lg">Sorry, we couldn't find any books that match your search.</p>
-                </div>
+          <div class="flex items-start justify-center h-screen">
+            <div class="text-center">
+              <h2 class="text-2xl font-bold mb-2">No Books Found</h2>
+              <p class="text-lg">Sorry, we couldn't find any books that match your search.</p>
             </div>
+          </div>
         </template>
-    
+
         <!-- Cards Section -->
         <template x-if="!noBooksFound">
-            <div class="flex flex-wrap min-h-[100vh]">
-                <template x-for="book in filteredBooks" :key="book.title">
-                    <div class="w-1/2 sm:w-1/4 lg:w-1/6 px-2 mb-4">
-                        <!-- Card -->
-                        <div class="bg-slate-200 shadow-xl rounded h-max text-center p-2">
-                            <img
-                                :src="book.cover"
-                                class="w-full h-44 sm:h-52 md:h-52 lg:h-64"
-                                :alt="book.title"
-                            />
-                            <div class="flex flex-col w-full">
-                                <div class="mt-2">
-                                    <a
-                                        href="#"
-                                        title="download this book"
-                                        download
-                                        class="inline-block mr-3"
-                                        @click.prevent="downloadBook(book.pdf)"
-                                    >
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="20"
-                                            height="20"
-                                            fill="currentColor"
-                                            class="bi bi-arrow-down-circle-fill"
-                                            viewBox="0 0 16 16"
-                                        >
-                                            <path
-                                                d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
-                                            />
-                                        </svg>
-                                    </a>
-    
-                                    <a
-                                        href="#"
-                                        @click.prevent="selectedBook = book"
-                                        class="inline-block ml-3"
-                                        title="more information"
-                                    >
-                                        <svg
-                                            xmlns="http://www.w3.org/2000/svg"
-                                            width="20"
-                                            height="20"
-                                            fill="currentColor"
-                                            class="bi bi-journal-bookmark-fill"
-                                            viewBox="0 0 16 16"
-                                        >
-                                            <path
-                                                fill-rule="evenodd"
-                                                d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z"
-                                            />
-                                            <path
-                                                d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"
-                                            />
-                                            <path
-                                                d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"
-                                            />
-                                        </svg>
-                                    </a>
-                                </div>
-                            </div>
-                        </div>
+          <div class="flex flex-wrap min-h-[100vh]">
+            <template x-for="book in filteredBooks" :key="book.title">
+              <!-- container  -->
+              <div class="w-1/2 sm:w-1/4 lg:w-1/6 px-2 mb-4">
+                <!-- Card -->
+                <div class="bg-slate-200 shadow-xl rounded h-max text-center p-2">
+                  <!-- cover book -->
+                  <img
+                    :src="book.cover"
+                    class="w-full h-44 sm:h-52 md:h-52 lg:h-64 xl:h-64"
+                    :alt="book.title"
+                  />
+                  <!-- buttons -->
+                  <div class="flex flex-col w-full">
+                    <div class="mt-2">
+                      <!-- button download -->
+                      <a
+                        href="#"
+                        title="download this book"
+                        download
+                        class="inline-block mr-3"
+                        @click.prevent="downloadBook(book.pdf)"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          fill="currentColor"
+                          class="bi bi-arrow-down-circle-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
+                          />
+                        </svg>
+                      </a>
+
+                      <!-- button more information -->
+                      <a
+                        href="#"
+                        @click.prevent="selectedBook = book"
+                        class="inline-block ml-3"
+                        title="more information"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="20"
+                          height="20"
+                          fill="currentColor"
+                          class="bi bi-journal-bookmark-fill"
+                          viewBox="0 0 16 16"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M6 1h6v7a.5.5 0 0 1-.757.429L9 7.083 6.757 8.43A.5.5 0 0 1 6 8z"
+                          />
+                          <path
+                            d="M3 0h10a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H3a2 2 0 0 1-2-2v-1h1v1a1 1 0 0 0 1 1h10a1 1 0 0 0 1-1V2a1 1 0 0 0-1-1H3a1 1 0 0 0-1 1v1H1V2a2 2 0 0 1 2-2"
+                          />
+                          <path
+                            d="M1 5v-.5a.5.5 0 0 1 1 0V5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0V8h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1zm0 3v-.5a.5.5 0 0 1 1 0v.5h.5a.5.5 0 0 1 0 1h-2a.5.5 0 0 1 0-1z"
+                          />
+                        </svg>
+                      </a>
                     </div>
-                </template>
-            </div>
+                  </div>
+                </div>
+              </div>
+            </template>
+          </div>
         </template>
-    
-        <!-- Modal -->
+
+        <!-- Modal more information-->
         <div
-            x-show="selectedBook"
-            x-cloak
-            x-transition:enter="transition ease-out duration-300"
-            x-transition:enter-start="opacity-0 transform scale-90"
-            x-transition:enter-end="opacity-100 transform scale-100"
-            @click.self="selectedBook = null"
-            class="fixed inset-0 flex items-center justify-center z-50"
+          x-show="selectedBook"
+          x-cloak
+          x-transition:enter="transition ease-out duration-300"
+          x-transition:enter-start="opacity-0 transform scale-90"
+          x-transition:enter-end="opacity-100 transform scale-100"
+          @click.self="selectedBook = null"
+          class="fixed inset-0 flex items-center justify-center z-50"
         >
-            <div class="bg-slate-950 p-3 rounded-lg w-11/12 h-max md:w-1/8 lg:w-1/3" @click.stop>
-                <div class="relative text-center">
-                    <h6
-                        class="text-white text-2xl mb-4 inline-block capitalize sm:3xl md:text-3xl lg:text-3xl"
-                    >
-                        more information
-                    </h6>
-                </div>
-    
-                <div class="flex flex-row md:justify-start">
-                    <div class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/4 lg:basis-1/2">
-                        <template x-if="selectedBook && selectedBook.cover">
-                            <img :src="selectedBook.cover" class="w-48 h-full" />
-                        </template>
-                    </div>
-    
-                    <div
-                        class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2"
-                    >
-                        <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
-                            <strong>Author : </strong>
-                            <span x-text="selectedBook ? selectedBook.author : ''"></span>
-                        </p>
-                    </div>
-                </div>
+          <div class="bg-slate-950 p-3 rounded-lg w-11/12 h-max md:w-1/8 lg:w-1/3" @click.stop>
+            <!-- title more information -->
+            <div class="relative text-center">
+              <h6
+                class="text-white text-2xl mb-4 inline-block capitalize sm:3xl md:text-3xl lg:text-3xl"
+              >
+                more information
+              </h6>
             </div>
+
+            <!-- konten more information -->
+            <div class="flex flex-row md:justify-start">
+              <!-- cover book -->
+              <div class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/4 lg:basis-1/2">
+                <template x-if="selectedBook && selectedBook.cover">
+                  <img :src="selectedBook.cover" class="w-48 h-full" />
+                </template>
+              </div>
+
+              <!-- more information -->
+              <div
+                class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2"
+              >
+                <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
+                  <strong>Author : </strong>
+                  <span x-text="selectedBook ? selectedBook.author : ''"></span>
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-    
-    
+      </div>
     </section>
 
-    <footer class="w-full h-max bg-slate-950">
-      <div>
+    <footer
+      class="w-full h-max bg-slate-950 flex lg:flex-row md:flex-row flex-col-reverse relative bottom-0"
+    >
+      <div class="basis-1/2">
         <p class="text-white p-5 text-justify text-wrap">
           &copy; 2024 Bacalah. All rights reserved to the original authors and publishers of the
           books. This website is a non-commercial project created solely for educational purposes by
@@ -259,6 +286,77 @@
           no fees are charged to the users.
         </p>
       </div>
+
+      <div class="basis-1/2 p-5">
+        <!-- penjelasan -->
+        <p class="text-white text-justify">
+          If you would like to modify or add useful features, please submit a pull request to the
+          GitHub repository below. To send a message to the developer regarding any specific
+          matters, please click the email button below.
+        </p>
+        <div class="mt-4 w-max text-white">
+          <!-- logo github , instagram , email -->
+          <a
+            href="https://github.com/candra256/bacalah-web"
+            target="_blank"
+            class="inline-block mr-4"
+            title="repository for this site"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-github"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+              />
+            </svg>
+          </a>
+
+          <a
+            href="mailto:dalangpelo982@gmail.com"
+            class="inline-block"
+            title="send email to developer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-envelope"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+
+      <a
+        href="#"
+        id="back-to-top"
+        class="text-white absolute bottom-0 right-0 lg:p-5 md:p-5 lg:mr-6 p-6"
+        title="back to top"
+      >
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          width="35"
+          height="35"
+          fill="currentColor"
+          class="bi bi-arrow-up-circle"
+          viewBox="0 0 16 16"
+        >
+          <path
+            fill-rule="evenodd"
+            d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"
+          />
+        </svg>
+      </a>
     </footer>
 
     <script src="script.js"></script>
