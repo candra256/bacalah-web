@@ -110,7 +110,7 @@
     
     </nav>
 
-    <!-- technology and programing laguage -->
+  
     <section class="flex flex-col bg-blue-400 p-3 w-full overflow-hidden">
 
       <div x-data="bookList()">
@@ -140,7 +140,7 @@
     
         <!-- Cards Section -->
         <template x-if="!noBooksFound">
-            <div class="flex flex-wrap">
+            <div class="flex flex-wrap min-h-[100vh]">
                 <template x-for="book in filteredBooks" :key="book.title">
                     <div class="w-1/2 sm:w-1/4 lg:w-1/6 px-2 mb-4">
                         <!-- Card -->
@@ -238,7 +238,7 @@
                     >
                         <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
                             <strong>Author : </strong>
-                            <span x-text="selectedBook ? selectedBook.title : ''"></span>
+                            <span x-text="selectedBook ? selectedBook.author : ''"></span>
                         </p>
                     </div>
                 </div>
