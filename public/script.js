@@ -36,11 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
 
-
-
-
-
-
 function downloadBook(pdfUrl) {
   Swal.fire({
     title: 'Downloading',
