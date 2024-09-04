@@ -5,6 +5,8 @@ window.booksData = [
     cover: "img/coverS (3).png",
     pdf: "pdf/pengaturan_uang.pdf",
     author: "Dr.Ir. Agus Wibowo , M.kom , M.Si , MM",
+    penerbit:"yayasan primaagus teknik",
+    tahunTerbit: "2023"
   },
 
   {
@@ -12,18 +14,27 @@ window.booksData = [
     cover: "img/coverS (4).png",
     pdf: "pdf/filosofiteras.pdf",
     author: "henry manampiring",
+    penerbit: "Penerbit Kompas",
+    tahunTerbit:"2018"
   },
+
+
   {
     title: "begining python",
     cover: "img/cover (1).png",
     pdf: "pdf/begining_python.pdf",
     author: "Peter Norton, Alex Samuel ...",
+    penerbit: "Wiley Publishing, Inc.",
+    tahunTerbit: "2005"
   },
+
   {
     title: "bicara itu ada seninya",
     author: "oh su hyang",
     cover: "img/coverS (1).png",
     pdf: "pdf/bicara_itu_ada_seninya.pdf",
+    penerbit:"Bhuana Ilmu Populer (BIP)",
+    tahunTerbit:"2019"
   },
 
   {
@@ -31,12 +42,17 @@ window.booksData = [
     cover: "img/coverS (2).png",
     pdf: "pdf/teori_kewirausahawan.pdf",
     author: "Dr. Agus Wibowo , M.kom , M.Si , MM",
+    penerbit:"yayasan primaagus teknik",
+    tahunTerbit:"2023"
   },
+
   {
     title: "beginning game development with python and pygame",
     cover: "img/cover (2).png",
     pdf: "pdf/game_dev_python.pdf",
     author: "Will McGugan",
+    penerbit:"Apress",
+    tahunTerbit:"2007"
   },
 
   {
@@ -44,6 +60,8 @@ window.booksData = [
     cover: "img/cover (3).png",
     pdf: "pdf/artificial_intelegence.pdf",
     author: "Kevin Warwick",
+    penerbit:"Routledge",
+    tahunTerbit:"2012"
   },
 
   {
@@ -51,6 +69,8 @@ window.booksData = [
     cover: "img/cover (4).png",
     pdf: "pdf/analis_big_data.pdf",
     author: "Dr. Joseph Teguh santoso, S.kom , M.kom",
+    penerbit:"yayasan primaagus teknik",
+    tahunTerbit:"2020"
   },
 
   {
@@ -58,6 +78,8 @@ window.booksData = [
     cover: "img/cover (5).png",
     pdf: "pdf/algoritma_pemograman.pdf",
     author: "edy budiman",
+    penerbit:"data tidak ditemukan",
+    tahunTerbit:"data tidak ditemukan"
   },
 
   {
@@ -65,6 +87,8 @@ window.booksData = [
     cover: "img/cover (6).png",
     pdf: "pdf/kecerdasan_buatan.pdf",
     author: "Jorot Dian Susatyono , M.kom",
+    penerbit:"yayasan primaagus teknik",
+    tahunTerbit:"2021"
   },
 
   {
@@ -72,27 +96,28 @@ window.booksData = [
     cover: "img/cover (7).png",
     pdf: "pdf/cepatmahirpython.pdf",
     author: "hendri",
+    penerbit:"data tidak ditemukan",
+    tahunTerbit:"data tidak ditemukan"
   },
+
 
   {
     title: "projek codingan dengan python",
     cover: "img/cover (8).png",
     pdf: "pdf/projekcodingdenganpython.pdf",
     author: "Dr. Joseph Teguh santoso, S.ko , M.kom",
+    penerbit:"yayasan primaagus teknik",
+    tahunTerbit:"2022"
   },
 
-  {
-    title: "python for data analysis",
-    cover: "img/cover (9).png",
-    pdf: "pdf/python_for_data.pdf",
-    author: "Wes McKinney",
-  },
-
+  
   {
     title: "data analysis numpy , mathplotlib , pandas",
     cover: "img/cover (10).png",
     pdf: "pdf/bernd_klein_python_data_analysis_a4.pdf",
     author: "Berd Klein",
+    penerbit:"data tidak ditemukan",
+    tahunTerbit:"data tidak ditemukan"
   },
 
 

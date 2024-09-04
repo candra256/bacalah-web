@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bacalah e-book digital</title>
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 
     <!-- alpine.js -->
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -83,8 +83,6 @@
           />
         </svg>
       </a>
-
-      <p class="absolute lg:bottom-5 lg:left-5 left-3 font-semibold bottom-2 lg:text-xs lg:font-thin">platform download e-book gratis</p>
 
       <!-- Menu Hamburger dan Ikon Pencarian -->
       <div class="flex items-center ml-auto">
@@ -170,7 +168,7 @@
                   <!-- cover book -->
                   <img
                     :src="book.cover"
-                    class="w-full h-44 sm:h-52 md:h-52 lg:h-64 xl:h-64"
+                    class="w-full h-44 sm:h-44 md:h-52 lg:h-64 xl:h-64"
                     :alt="book.title"
                   />
                   <!-- buttons -->
@@ -266,10 +264,21 @@
               <div
                 class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2"
               >
-                <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
-                  <strong>Author : </strong>
+                <p class="text-white text-left sm:text-xl mb-2 text-xs md:text-2xl lg:text-xl">
+                  <strong>penulis : </strong>
                   <span x-text="selectedBook ? selectedBook.author : ''"></span>
                 </p>
+
+                <p class="text-white text-left sm:text-xl mb-2 text-xs md:text-2xl lg:text-xl">
+                  <strong>penerbit : </strong>
+                  <span x-text="selectedBook ? selectedBook.penerbit : ''"></span>
+                </p>
+
+                <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
+                  <strong>tahun terbit : </strong>
+                  <span x-text="selectedBook ? selectedBook.tahunTerbit : ''"></span>
+                </p>
+                
               </div>
             </div>
           </div>
