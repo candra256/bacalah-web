@@ -1,12 +1,37 @@
 // books.js
 window.booksData = [
   {
+    title: "pengendalian keuangan",
+    cover: "img/coverS (3).png",
+    pdf: "pdf/pengaturan_uang.pdf",
+    author: "Dr.Ir. Agus Wibowo , M.kom , M.Si , MM",
+  },
+
+  {
+    title: "filosofiteras",
+    cover: "img/coverS (4).png",
+    pdf: "pdf/filosofiteras.pdf",
+    author: "henry manampiring",
+  },
+  {
     title: "begining python",
     cover: "img/cover (1).png",
     pdf: "pdf/begining_python.pdf",
     author: "Peter Norton, Alex Samuel ...",
   },
+  {
+    title: "bicara itu ada seninya",
+    author: "oh su hyang",
+    cover: "img/coverS (1).png",
+    pdf: "pdf/bicara_itu_ada_seninya.pdf",
+  },
 
+  {
+    title: "teori kewirausahaan dan bisnis",
+    cover: "img/coverS (2).png",
+    pdf: "pdf/teori_kewirausahawan.pdf",
+    author: "Dr. Agus Wibowo , M.kom , M.Si , MM",
+  },
   {
     title: "beginning game development with python and pygame",
     cover: "img/cover (2).png",
@@ -70,42 +95,15 @@ window.booksData = [
     author: "Berd Klein",
   },
 
-  {
-    title: "bicara itu ada seninya",
-    author: "oh su hyang",
-    cover: "img/coverS (1).png",
-    pdf: "pdf/bicara_itu_ada_seninya.pdf",
-  },
 
-  {
-    title: "teori kewirausahaan dan bisnis",
-    cover: "img/coverS (2).png",
-    pdf: "pdf/teori_kewirausahawan.pdf",
-    author: "Dr. Agus Wibowo , M.kom , M.Si , MM",
-  },
-
-  {
-    title: "pengendalian keuangan",
-    cover: "img/coverS (3).png",
-    pdf: "pdf/pengaturan_uang.pdf",
-    author: "Dr.Ir. Agus Wibowo , M.kom , M.Si , MM",
-  },
-
-  {
-    title: "filosofiteras",
-    cover: "img/coverS (4).png",
-    pdf: "pdf/filosofiteras.pdf",
-    author: "henry manampiring",
-  },
 ];
 
 function bookList() {
-
   return {
     searchQuery: "",
     books: window.booksData,
     selectedBook: null,
-   
+
     get filteredBooks() {
       if (!this.searchQuery) {
         return this.books;
@@ -126,7 +124,7 @@ function bookList() {
     get noBooksFound() {
       return this.searchQuery && this.filteredBooks.length === 0;
     },
-    
+
     calculateMatchScore(title, query) {
       if (!query) return 0;
 
@@ -149,4 +147,3 @@ function bookList() {
     },
   };
 }
-
