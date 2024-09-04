@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bacalah | download e-book digital</title>
 
-    <link rel="stylesheet" href="css/final.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <!-- alpine.js -->
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -245,9 +245,9 @@
             <!-- title more information -->
             <div class="relative text-center">
               <h6
-                class="text-white text-2xl mb-4 inline-block capitalize sm:3xl md:text-3xl lg:text-3xl"
+                class="text-white text-xl font-bold mb-4 inline-block capitalize sm:3xl md:text-3xl lg:text-2xl"
               >
-                more information
+                information about this book
               </h6>
             </div>
 
@@ -264,18 +264,18 @@
               <div
                 class="basis-1/2 max-h-64 md:basis-auto overflow-y-auto custom-scrollbar lg:basis-1/2"
               >
-                <p class="text-white text-left sm:text-xl mb-2 text-xs md:text-2xl lg:text-xl">
-                  <strong>penulis : </strong>
+                <p class="text-white text-left capitalize sm:text-xl mb-2 text-xs md:text-2xl lg:text-xl">
+                  <span class="font-semibold">penulis :</span>
                   <span x-text="selectedBook ? selectedBook.author : ''"></span>
                 </p>
 
-                <p class="text-white text-left sm:text-xl mb-2 text-xs md:text-2xl lg:text-xl">
-                  <strong>penerbit : </strong>
+                <p class="text-white text-left capitalize sm:text-xl mb-2 text-xs md:text-2xl lg:text-xl">
+                  <span class="font-semibold">penerbit : </span>
                   <span x-text="selectedBook ? selectedBook.penerbit : ''"></span>
                 </p>
 
-                <p class="text-white text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
-                  <strong>tahun terbit : </strong>
+                <p class="text-white capitalize text-left sm:text-xl text-xs md:text-2xl lg:text-xl">
+                  <span class="font-semibold">tahun terbit :</span>
                   <span x-text="selectedBook ? selectedBook.tahunTerbit : ''"></span>
                 </p>
                 
