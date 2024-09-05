@@ -52,6 +52,21 @@ function downloadBook(pdfUrl) {
 }
 
 
+window.onload = function() {
+  if (localStorage.getItem('page_loaded')) {
+      document.getElementById('loading-screen').style.display = 'none';
+  } else {
+      // Set item di localStorage agar tidak muncul saat di-refresh
+      localStorage.setItem('page_loaded', 'true');
+      setTimeout(function() {
+          document.getElementById('loading-screen').style.display = 'none';
+      }, 1000); // Ubah durasi sesuai kebutuhan
+  }
+};
+
+
+// localStorage.removeItem('page_loaded');
+
 
 
 
