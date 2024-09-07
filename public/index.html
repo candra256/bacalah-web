@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bacalah | download e-book digital</title>
-    <link rel="icon" href="favicon/favicon.png" type="image/x-icon">
+    <link rel="icon" href="favicon/favicon.png" type="image/x-icon" />
 
     <link rel="stylesheet" href="css/style.css" />
 
@@ -59,84 +59,84 @@
     </style>
   </head>
   <body>
-    <div class="kontainer">
-      <!-- loading -->
-      <div id="loading-screen" class="fixed inset-0 flex items-center justify-center bg-white z-50">
-        <p>Loading...</p>
+    <!-- loading -->
+    <div id="loading-screen" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+      <p>Loading...</p>
+    </div>
+
+    <!-- navigasi -->
+    <nav class="flex flex-row bg-green-400 h-14 p-3 md:p-4 w-full sticky top-0 z-10 shadow-md">
+      <!-- Logo dan Link Utama -->
+      <a
+        style="font-family: protest-guerrilla-regular"
+        href="index.html"
+        class="flex items-center cursor-pointer flex-shrink-0 basis-1/6 text-2xl md:text-5xl lg:text-4xl md:font-semibold text-nowrap font-bold"
+      >
+        Bacalah
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke-width="1.5"
+          stroke="currentColor"
+          class="size-9 w-12"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+          />
+        </svg>
+      </a>
+
+      <!-- Menu Hamburger dan Ikon Pencarian -->
+      <div class="flex items-center ml-auto">
+        <button id="menu-button" class="lg:hidden text-black text-2xl">☰</button>
       </div>
 
-      <!-- navigasi -->
-      <nav class="flex flex-row bg-green-400 h-24 p-3 md:p-4 w-full sticky top-0 z-10 shadow-md">
-        <!-- Logo dan Link Utama -->
-        <a
-          style="font-family: protest-guerrilla-regular"
-          href="index.html"
-          class="flex items-center cursor-pointer flex-shrink-0 basis-1/6 text-2xl md:text-5xl lg:text-4xl md:font-semibold text-nowrap font-bold"
-        >
-          Bacalah
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="size-9 w-12"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
-            />
-          </svg>
+      <!-- Menu Links (Hidden on Mobile) -->
+      <div
+        class="flex-grow basis-1/6 hidden gap-24 items-center justify-center lg:justify-start lg:ml-24 text-xl lg:flex md:hidden"
+      >
+        <a href="index.html" class="relative inline-block px-2 py-1 text-gray-800 group">
+          Beranda
+          <span
+            class="absolute bottom-0 left-0 h-1 bg-slate-950 transition-all duration-300 ease-in-out w-0 group-hover:w-full"
+          ></span>
         </a>
 
-        <!-- Menu Hamburger dan Ikon Pencarian -->
-        <div class="flex items-center ml-auto">
-          <button id="menu-button" class="lg:hidden text-black text-2xl">☰</button>
+        <a href="masukanBuku.html" class="relative inline-block px-2 py-1 text-gray-800 group">
+          Berkontribusi
+          <span
+            class="absolute bottom-0 left-0 h-1 bg-slate-950 transition-all duration-300 ease-in-out w-0 group-hover:w-full"
+          ></span>
+        </a>
+        <a href="tentang.html" class="relative inline-block px-2 py-1 text-gray-800 group">
+          Tentang
+          <span
+            class="absolute bottom-0 left-0 h-1 bg-slate-950 transition-all duration-300 ease-in-out w-0 group-hover:w-full"
+          ></span>
+        </a>
+      </div>
+
+      <!-- Mobile Menu (Hidden on Desktop) -->
+      <div
+        id="mobile-menu"
+        class="fixed top-0 right-0 h-full w-64 md:w-80 bg-black transform translate-x-full transition-transform duration-300 ease-in-out"
+      >
+        <div class="flex justify-end p-4">
+          <button id="close-menu" class="text-3xl text-white hover:">❎</button>
         </div>
 
-        <!-- Menu Links (Hidden on Mobile) -->
-        <div
-          class="flex-grow basis-1/6 hidden gap-24 items-center justify-center lg:justify-start lg:ml-24 text-xl lg:flex md:hidden"
-        >
-          <a href="index.html" class="relative inline-block px-2 py-1 text-gray-800 group">
-            Beranda
-            <span
-              class="absolute bottom-0 left-0 h-1 bg-slate-950 transition-all duration-300 ease-in-out w-0 group-hover:w-full"
-            ></span>
-          </a>
-
-          <a href="masukanBuku.html" class="relative inline-block px-2 py-1 text-gray-800 group">
-            Berkotribusi
-            <span
-              class="absolute bottom-0 left-0 h-1 bg-slate-950 transition-all duration-300 ease-in-out w-0 group-hover:w-full"
-            ></span>
-          </a>
-          <a href="tentang.html" class="relative inline-block px-2 py-1 text-gray-800 group">
-            Tentang
-            <span
-              class="absolute bottom-0 left-0 h-1 bg-slate-950 transition-all duration-300 ease-in-out w-0 group-hover:w-full"
-            ></span>
-          </a>
+        <div class="flex flex-col items-center text-xl space-y-4 mt-8 gap-y-10">
+          <a href="index.html" class="text-white hover:text-blue-700">Beranda</a>
+          <a href="masukanBuku.html" class="text-white hover:text-blue-700">MasukanBuku</a>
+          <a href="tentang.html" class="text-white hover:text-blue-700">Tentang</a>
         </div>
+      </div>
+    </nav>
 
-        <!-- Mobile Menu (Hidden on Desktop) -->
-        <div
-          id="mobile-menu"
-          class="fixed top-0 right-0 h-full w-64 md:w-80 bg-black transform translate-x-full transition-transform duration-300 ease-in-out"
-        >
-          <div class="flex justify-end p-4">
-            <button id="close-menu" class="text-3xl text-white hover:">❎</button>
-          </div>
-
-          <div class="flex flex-col items-center text-xl space-y-4 mt-8 gap-y-10">
-            <a href="index.html" class="text-white hover:text-blue-700">Beranda</a>
-            <a href="masukanBuku.html" class="text-white hover:text-blue-700">MasukanBuku</a>
-            <a href="tentang.html" class="text-white hover:text-blue-700">Tentang</a>
-          </div>
-        </div>
-      </nav>
-
+    <div>
       <!-- main konten -->
       <section class="flex flex-col bg-blue-400 p-3 w-full overflow-hidden">
         <div x-data="bookList()">
@@ -167,10 +167,10 @@
 
           <!-- Cards Section -->
           <template x-if="!noBooksFound">
-            <div class="flex flex-wrap min-h-[100vh]">
+            <div class="flex flex-wrap">
               <template x-for="book in filteredBooks" :key="book.title">
                 <!-- container  -->
-                <div class="w-1/2 sm:w-1/4 lg:w-1/6 md:w-1/4 xl:w-1/6 px-2 mb-4">
+                <div class="w-1/2 sm:w-1/4 md:w-1/4 lg:w-1/6 px-2 mb-4">
                   <!-- Card -->
                   <div class="bg-slate-200 shadow-xl rounded h-max text-center p-2">
                     <!-- cover book -->
@@ -301,7 +301,7 @@
 
       <!-- footer -->
       <footer
-        class="w-full h-max bg-slate-950 flex lg:flex-row md:flex-row flex-col-reverse relative bottom-0"
+        class="w-full h-max bg-slate-950 flex lg:flex-row md:flex-row flex-col-reverse"
       >
         <div class="basis-1/2">
           <p class="text-white p-5 text-justify text-wrap">
@@ -320,12 +320,14 @@
             GitHub repository below. To send a message to the developer regarding any specific
             matters, please click the email button below.
           </p>
-          <div class="mt-4 w-max text-white">
-            <!-- logo github , instagram , email -->
-            <a
+
+          <div class="mt-4 w-full text-white text-bl rounded-md">
+         
+            
+              <a
               href="https://github.com/candra256/bacalah-web"
               target="_blank"
-              class="inline-block mr-4"
+              class="inline-block mr-3"
               title="repository for this site"
             >
               <svg
@@ -343,46 +345,27 @@
             </a>
 
             <a
-              href="mailto:dalangpelo982@gmail.com"
-              class="inline-block"
-              title="send email to developer"
+            href="mailto:dalangpelo982@gmail.com"
+            class="inline-block"
+            title="send email to developer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-envelope"
+              viewBox="0 0 16 16"
             >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="40"
-                height="40"
-                fill="currentColor"
-                class="bi bi-envelope"
-                viewBox="0 0 16 16"
-              >
-                <path
-                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
-                />
-              </svg>
-            </a>
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+              />
+            </svg>
+          </a>
+        
           </div>
         </div>
 
-        <a
-          href="#"
-          id="back-to-top"
-          class="text-white absolute bottom-0 right-0 lg:p-5 md:p-5 lg:mr-6 p-6"
-          title="back to top"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="35"
-            height="35"
-            fill="currentColor"
-            class="bi bi-arrow-up-circle"
-            viewBox="0 0 16 16"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8m15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0m-7.5 3.5a.5.5 0 0 1-1 0V5.707L5.354 7.854a.5.5 0 1 1-.708-.708l3-3a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1-.708.708L8.5 5.707z"
-            />
-          </svg>
-        </a>
       </footer>
     </div>
 
