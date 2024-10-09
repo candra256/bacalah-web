@@ -126,7 +126,16 @@ window.booksData = [
     pdf: "pdf/Atomic Habits Perubahan Kecil yang memberikan hasil luar biasa by James Clear.pdf",
     author: "James Clear",
     penerbit:"Penguin Random House",
-    tahunTerbit:" 16 September 2019"
+    tahunTerbit:"2019"
+  },
+
+  {
+    title: "Psychology of Money",
+    cover: "img/cover12.webp",
+    pdf: "pdf/Copy of The Psychology of Money  Morgan Housel  (SFILE.MOBI).pdf",
+    author: "Morgan Housel",
+    penerbit:"HarperOne",
+    tahunTerbit:"2020"
   },
 
  
