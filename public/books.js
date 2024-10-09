@@ -120,6 +120,17 @@ window.booksData = [
     tahunTerbit:"data tidak ditemukan"
   },
 
+  {
+    title: "Atomic Habits",
+    cover: "img/cover11.webp",
+    pdf: "pdf/Atomic Habits Perubahan Kecil yang memberikan hasil luar biasa by James Clear.pdf",
+    author: "James Clear",
+    penerbit:"Penguin Random House",
+    tahunTerbit:" 16 September 2019"
+  },
+
+ 
+
 
 ];
 
