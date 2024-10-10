@@ -26,16 +26,16 @@
     <style>
       @layer utilities {
         .custom-scrollbar::-webkit-scrollbar {
-          width: 4px;
+          width: 3px;
         }
 
         .custom-scrollbar::-webkit-scrollbar-thumb {
-          background-color: #4caf50;
-          border-radius: 10px;
+          background-color: #fff;
+        
         }
 
         .custom-scrollbar::-webkit-scrollbar-track {
-          background: #2e7d32;
+          background: rgb(49, 49, 49);
         }
       }
 
@@ -163,18 +163,13 @@
           <!-- Cards Section -->
           <template x-if="!noBooksFound">
             <div class="flex flex-wrap">
-              <template x-for="book in filteredBooks" :key="book.title">
+              <template x-for="book in filteredBooks">
                 <!-- container  -->
-                <div class="w-1/2 sm:w-1/4 md:w-1/4 lg:w-1/6 px-2 mb-4">
+                <div :key="book.title" class="w-1/2 sm:w-1/4 md:w-1/4 lg:w-1/6 px-2 mb-4">
                   
                   <!-- Card -->
                   <div class="bg-slate-200 shadow-xl rounded h-max text-center p-2">
-                
-                    <img
-                      :src="book.cover"
-                      class="w-full h-44 sm:h-44 md:h-52 lg:h-64 xl:h-64 object-cover aspect-[2/3]"
-                      :alt="book.title"
-                    />
+                    <img :src="book.cover || 'default-cover.jpg'" :alt="book.title || 'No Title'"  class="w-full h-44 sm:h-44 md:h-52 lg:h-64 xl:h-64 object-cover aspect-[2/3]" />
 
                     <!-- buttons -->
                     <div class="flex flex-col w-full">

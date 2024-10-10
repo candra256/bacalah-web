@@ -1,13 +1,15 @@
 // books.js
 window.booksData = [
+
   {
-    title: "pengendalian keuangan",
-    cover: "img/coverS (3).webp",
-    pdf: "pdf/pengaturan_uang.pdf",
-    author: "Dr.Ir. Agus Wibowo , M.kom , M.Si , MM",
-    penerbit:"yayasan primaagus teknik",
-    tahunTerbit: "2023"
+    title: "Rich dad Poor dad",
+    cover: "img/cover13.webp",
+    pdf: "pdf/Rich Dad Poor Dad - Robert T. Kiyosaki.pdf",
+    author: "Robert T. Kiyosaki",
+    penerbit:"Plata Publishing",
+    tahunTerbit:" 1997"
   },
+ 
 
   {
     title: "filosofiteras",
@@ -36,6 +38,34 @@ window.booksData = [
     penerbit:"Bhuana Ilmu Populer (BIP)",
     tahunTerbit:"2019"
   },
+  {
+    title: "Psychology of Money",
+    cover: "img/cover12.webp",
+    pdf: "pdf/Copy of The Psychology of Money  Morgan Housel  (SFILE.MOBI).pdf",
+    author: "Morgan Housel",
+    penerbit:"HarperOne",
+    tahunTerbit:"2020"
+  },
+
+
+  {
+    title: "The Principles Of Power",
+    cover: "img/cover14.webp",
+    pdf: "pdf/032. The Principles Of Power (Dion Yulianto).pdf",
+    author: "Dion Yulianto",
+    penerbit:"Jendela Penerbit",
+    tahunTerbit:"2023"
+  },
+
+  
+  {
+    title: "Atomic Habits",
+    cover: "img/cover11.webp",
+    pdf: "pdf/Atomic Habits Perubahan Kecil yang memberikan hasil luar biasa by James Clear.pdf",
+    author: "James Clear",
+    penerbit:"Penguin Random House",
+    tahunTerbit:"2019"
+  },
 
   {
     title: "teori kewirausahaan dan bisnis",
@@ -44,6 +74,24 @@ window.booksData = [
     author: "Dr. Agus Wibowo , M.kom , M.Si , MM",
     penerbit:"yayasan primaagus teknik",
     tahunTerbit:"2023"
+  },
+
+  {
+    title: "Berani Tidak Disukai",
+    cover: "img/cover15.webp",
+    pdf: "pdf/Ebook Berani Tidak Disukai.pdf",
+    author: "Ichiro Kishimi dan Fumitake Koga",
+    penerbit:"Gramedia Pustaka Utama",
+    tahunTerbit:" 2017"
+  },
+
+  {
+    title: "Sebuah Seni Bersikap Bodo Amat",
+    cover: "img/cover16.webp",
+    pdf: "pdf/Sebuah Seni Bersikap Bodo Amat by Mark Manson.pdf",
+    author: "Mark Manson",
+    penerbit:" Gramedia Pustaka Utama",
+    tahunTerbit:"2018"
   },
 
   {
@@ -62,6 +110,15 @@ window.booksData = [
     author: "Kevin Warwick",
     penerbit:"Routledge",
     tahunTerbit:"2012"
+  },
+
+  {
+    title: "Public Speaking Mastery",
+    cover: "img/cover17.webp",
+    pdf: "pdf/Public Speaking Mastery.pdf",
+    author: "Ongky Hojanto",
+    penerbit:"Gramedia Pustaka Utama",
+    tahunTerbit:"2018"
   },
 
   {
@@ -120,23 +177,19 @@ window.booksData = [
     tahunTerbit:"data tidak ditemukan"
   },
 
-  {
-    title: "Atomic Habits",
-    cover: "img/cover11.webp",
-    pdf: "pdf/Atomic Habits Perubahan Kecil yang memberikan hasil luar biasa by James Clear.pdf",
-    author: "James Clear",
-    penerbit:"Penguin Random House",
-    tahunTerbit:"2019"
-  },
+ 
+
+
 
   {
-    title: "Psychology of Money",
-    cover: "img/cover12.webp",
-    pdf: "pdf/Copy of The Psychology of Money  Morgan Housel  (SFILE.MOBI).pdf",
-    author: "Morgan Housel",
-    penerbit:"HarperOne",
-    tahunTerbit:"2020"
-  },
+    title: "pengendalian keuangan",
+    cover: "img/coverS (3).webp",
+    pdf: "pdf/pengaturan_uang.pdf",
+    author: "Dr.Ir. Agus Wibowo , M.kom , M.Si , MM",
+    penerbit:"yayasan primaagus teknik",
+    tahunTerbit: "2023"
+  }
+
 
  
 
