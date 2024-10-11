@@ -1,5 +1,5 @@
 
-# tentang website ini
+# Tentang website ini
 website ini dibuat dengan tujuan agar pengguna dapat mengunduh sebuah buku digital secara gratis .
 hak kredit dan hak cipta dari buku yang ada di dalam website ini adalah milik penulis dan penerbit dari masing masing judul buku
 developer tidak mengambil keuntungan dari pengguna dan buku-buku terebut .
