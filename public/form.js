@@ -1,4 +1,5 @@
 
+// form input
 const dropzone = document.getElementById("dropzone");
 const fileInput = document.getElementById("fileInput");
 const nama = document.getElementById("nama");
@@ -109,8 +110,8 @@ fileInput.addEventListener("change", () => {
   }
 });
 
-// alerts functions
 
+// alerts functions
 function showLoading() {
   Swal.fire({
     title: "Tunggu sebentar...",
@@ -128,6 +129,7 @@ function showLoading() {
       title: "Success!",
       text: "File Anda telah berhasil diunggah!",
       icon: "success",
+      allowOutsideClick:false,
       confirmButtonText: "OK",
     });
   }, 2000);
@@ -154,4 +156,3 @@ function resetForm() {
   document.getElementById("nama").value = "";
   document.getElementById("email").value = "";
 }
-

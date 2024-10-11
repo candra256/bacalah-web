@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Berkotribusi pada website bacalah</title>
-    <link rel="icon" href="favicon/favicon.webp" type="image/x-icon">
-    <link rel="stylesheet" href="css/final.css" />
+    <link rel="icon" href="favicon/favicon.webp" type="image/x-icon" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <!-- sweetiealert -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -31,7 +31,6 @@
   </head>
 
   <body>
-
     <!-- main konten -->
     <div class="grid grid-cols-1 lg:grid-cols-2 min-h-screen">
       <!-- Kiri -->
@@ -46,141 +45,133 @@
           class="w-full lg:w-full lg:h-80 lg:object-cover mb-6"
         />
         <p class="text-black text-justify font-normal md:text-xl lg:text-xl">
-          jika anda berkenan silakan unggah buku digital (e-book) yang anda miliki melalui website ini. Kami akan meninjau dan memprosesnya
-          dengan cermat. Setelah itu, kami akan menghubungi Anda melalui email untuk memberikan
-          ucapan terima kasih atas kontribusi anda.
+          jika anda berkenan silakan unggah buku digital (e-book) yang anda miliki melalui website
+          ini. Kami akan meninjau dan memprosesnya dengan cermat. Setelah itu, kami akan menghubungi
+          Anda melalui email untuk memberikan ucapan terima kasih atas kontribusi anda.
         </p>
       </div>
 
       <!-- Kanan -->
       <div class="p-8 flex items-center justify-center bg-blue-300">
-        <div class="w-full">
-          <div id="loadingIndicator" class="hidden text-center text-blue-500 mb-4">
-            <p>Uploading file...</p>
-          </div>
-
-          <h2 class="text-2xl font-semibold mb-6 text-center">Masukkan Buku Digital</h2>
-          <p>*pastikan file nya berupa pdf</p>
-          <!-- Form untuk upload file -->
-          <div class="mb-4 mt-4">
-            <label class="block text-gray-700 font-semibold mb-2">Upload File Buku Digital</label>
-            <div
-              class="border-2 border-dashed border-white p-6 text-center cursor-pointer hover:bg-gray-50"
-              id="dropzone"
-              role="button"
-              aria-label="Dropzone untuk mengunggah file"
-            >
-              <p class="text-gray-500">Klik atau drag & drop file di sini</p>
-              <input type="file" class="hidden" multiple id="fileInput" accept=".pdf" />
+        <div class="w-full h-full bg-gray-100">
+          <div class="border border-slate-950 h-full p-5">
+            <h2 class="text-2xl lg:text-2xl font-semibold mb-14 text-center border-b-2 border-black pb-2">Masukkan Buku Digital</h2>
+            <p>*pastikan file nya berupa pdf</p>
+            <!-- Form untuk upload file -->
+            <div class="mb-4 mt-4">
+              <label class="block text-gray-700 font-semibold mb-2">Upload File Buku Digital</label>
+              <div
+                class="border-2 border-dashed border-slate-400 p-6 text-center cursor-pointer hover:bg-gray-50"
+                id="dropzone"
+                role="button"
+                aria-label="Dropzone untuk mengunggah file"
+              >
+                <p class="text-gray-500">Klik atau drag & drop file di sini</p>
+                <input type="file" class="hidden" multiple id="fileInput" accept=".pdf" />
+              </div>
             </div>
-          </div>
 
-          <!-- Form untuk Nama -->
-          <div class="mb-4">
-            <label for="nama" class="block text-gray-700 font-semibold mb-2">Nama</label>
-            <input
-              type="text"
-              id="nama"
-              name="nama"
-              placeholder="Nama Anda"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+            <!-- Form untuk Nama -->
+            <div class="mb-4">
+              <label for="nama" class="block text-gray-700 font-semibold mb-2">Nama</label>
+              <input
+                type="text"
+                id="nama"
+                name="nama"
+                placeholder="Nama Anda"
+                class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
 
-          <!-- Form untuk Email -->
-          <div class="mb-4">
-            <label for="email" class="block text-gray-700 font-semibold mb-2">Alamat Email</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              placeholder="Email Anda"
-              class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
-            />
-          </div>
+            <!-- Form untuk Email -->
+            <div class="mb-4">
+              <label for="email" class="block text-gray-700 font-semibold mb-2">Alamat Email</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                placeholder="Email Anda"
+                class="w-full px-4 py-2 border border-gray-300 rounded focus:outline-none focus:ring-2 focus:ring-blue-500"
+              />
+            </div>
 
-          <!-- Tombol Submit -->
-          <div class="text-center mt-9">
-            <button
-              id="submit"
-              class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
-            >
-              Kirim
-            </button>
+            <!-- Tombol Submit -->
+            <div class="text-center mt-9">
+              <button
+                id="submit"
+                class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500"
+              >
+                Kirim
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Footer -->
-    <footer
-    class="w-full h-max bg-slate-950 flex lg:flex-row md:flex-row flex-col-reverse"
-  >
-    <div class="basis-1/2">
-      <p class="text-white p-5 text-justify text-wrap">
-        &copy; 2024 Bacalah. All rights reserved to the original authors and publishers of the
-        books. This website is a non-commercial project created solely for educational purposes
-        by the developer. The developer does not claim any ownership over the content, nor does
-        the developer seek any profit from it. The books provided are for reading purposes only,
-        and no fees are charged to the users.
-      </p>
-    </div>
-
-    <div class="basis-1/2 p-5">
-      <!-- penjelasan -->
-      <p class="text-white text-justify">
-        If you would like to modify or add useful features, please submit a pull request to the
-        GitHub repository below. To send a message to the developer regarding any specific
-        matters, please click the email button below.
-      </p>
-
-      <div class="mt-4 w-full text-white text-bl rounded-md">
-     
-        
-          <a
-          href="https://github.com/candra256/bacalah-web"
-          target="_blank"
-          class="inline-block mr-3"
-          title="repository for this site"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="40"
-            height="40"
-            fill="currentColor"
-            class="bi bi-github"
-            viewBox="0 0 16 16"
-          >
-            <path
-              d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
-            />
-          </svg>
-        </a>
-
-        <a
-        href="mailto:dalangpelo982@gmail.com"
-        class="inline-block"
-        title="send email to developer"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="40"
-          height="40"
-          fill="currentColor"
-          class="bi bi-envelope"
-          viewBox="0 0 16 16"
-        >
-          <path
-            d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
-          />
-        </svg>
-      </a>
-    
+    <footer class="w-full h-max bg-slate-950 flex lg:flex-row md:flex-row flex-col-reverse">
+      <div class="basis-1/2">
+        <p class="text-white p-5 text-justify text-wrap">
+          &copy; 2024 Bacalah. All rights reserved to the original authors and publishers of the
+          books. This website is a non-commercial project created solely for educational purposes by
+          the developer. The developer does not claim any ownership over the content, nor does the
+          developer seek any profit from it. The books provided are for reading purposes only, and
+          no fees are charged to the users.
+        </p>
       </div>
-    </div>
 
-  </footer>
+      <div class="basis-1/2 p-5">
+        <!-- penjelasan -->
+        <p class="text-white text-justify">
+          If you would like to modify or add useful features, please submit a pull request to the
+          GitHub repository below. To send a message to the developer regarding any specific
+          matters, please click the email button below.
+        </p>
 
-    <script src="script2.js"></script>
+        <div class="mt-4 w-full text-white text-bl rounded-md">
+          <a
+            href="https://github.com/candra256/bacalah-web"
+            target="_blank"
+            class="inline-block mr-3"
+            title="repository for this site"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-github"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27s1.36.09 2 .27c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.01 8.01 0 0 0 16 8c0-4.42-3.58-8-8-8"
+              />
+            </svg>
+          </a>
+
+          <a
+            href="mailto:dalangpelo982@gmail.com"
+            class="inline-block"
+            title="send email to developer"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="40"
+              height="40"
+              fill="currentColor"
+              class="bi bi-envelope"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+              />
+            </svg>
+          </a>
+        </div>
+      </div>
+    </footer>
+
+    <script src="form.js"></script>
   </body>
 </html>

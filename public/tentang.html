@@ -6,7 +6,7 @@
     <title>Tentang website bacalah</title>
     <link rel="icon" href="favicon/favicon.webp" type="image/x-icon" />
 
-    <link rel="stylesheet" href="css/final.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -25,6 +25,11 @@
   </head>
 
   <body>
+    <!-- loading -->
+    <div id="loading-screen" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+      <p>Loading...</p>
+    </div>
+
     <!-- navigasi -->
     <nav class="flex flex-row bg-green-400 h-14 p-3 md:p-4 w-full sticky top-0 z-10 shadow-md">
       <!-- Logo dan Link Utama -->
@@ -59,18 +64,13 @@
       <div
         class="flex-grow basis-1/6 hidden gap-24 items-center justify-center lg:justify-start lg:ml-24 text-xl lg:flex md:hidden"
       >
-        <a href="index.html" class="relative inline-block px-2 py-1 text-gray-800 group">
-          Home
-         
-        </a>
+        <a href="index.html" class="relative inline-block px-2 py-1 text-gray-800 group"> Home </a>
 
         <a href="masukanBuku.html" class="relative inline-block px-2 py-1 text-gray-800 group">
           Contribute
-      
         </a>
         <a href="tentang.html" class="relative inline-block px-2 py-1 text-gray-800 group">
           About
-         
         </a>
       </div>
 
@@ -187,6 +187,6 @@
         </div>
       </div>
     </footer>
-    <script src="script3.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

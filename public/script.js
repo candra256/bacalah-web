@@ -10,6 +10,42 @@ document.getElementById("close-menu").addEventListener("click", function () {
   document.getElementById("mobile-menu").classList.add("translate-x-full");
 });
 
+
+
+// functuon alert when downloadbook
+function downloadBook(pdfUrl) {
+  Swal.fire({
+    title: 'Downloading',
+    text: 'Buku sedang diunduh, harap tunggu...',
+    icon: 'info',
+    showConfirmButton: false,
+    timer: 2000
+  }).then(() => {
+    const a = document.createElement('a');
+    a.href = pdfUrl;
+    a.download = pdfUrl.split('/').pop(); // Menentukan nama file berdasarkan URL
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+  });
+}
+
+
+// loading screen
+window.onload = function() {
+  if (localStorage.getItem('page_loaded')) {
+      document.getElementById('loading-screen').style.display = 'none';
+  } else {
+      // Set item di localStorage agar tidak muncul saat di-refresh
+      localStorage.setItem('page_loaded', 'true');
+      setTimeout(function() {
+          document.getElementById('loading-screen').style.display = 'none';
+      }, 100); // Ubah durasi sesuai kebutuhan
+  }
+};
+
+
+
 // // back to top
 // document.addEventListener('DOMContentLoaded', () => {
 //   const backToTopButton = document.getElementById('back-to-top');
@@ -32,41 +68,6 @@ document.getElementById("close-menu").addEventListener("click", function () {
 //       });
 //   });
 // });
-
-
-function downloadBook(pdfUrl) {
-  Swal.fire({
-    title: 'Downloading',
-    text: 'Buku sedang diunduh, harap tunggu...',
-    icon: 'info',
-    showConfirmButton: false,
-    timer: 2000
-  }).then(() => {
-    const a = document.createElement('a');
-    a.href = pdfUrl;
-    a.download = pdfUrl.split('/').pop(); // Menentukan nama file berdasarkan URL
-    document.body.appendChild(a);
-    a.click();
-    document.body.removeChild(a);
-  });
-}
-
-
-window.onload = function() {
-  if (localStorage.getItem('page_loaded')) {
-      document.getElementById('loading-screen').style.display = 'none';
-  } else {
-      // Set item di localStorage agar tidak muncul saat di-refresh
-      localStorage.setItem('page_loaded', 'true');
-      setTimeout(function() {
-          document.getElementById('loading-screen').style.display = 'none';
-      }, 100); // Ubah durasi sesuai kebutuhan
-  }
-};
-
-
-
-
 
 
 
