@@ -203,8 +203,9 @@ function bookList() {
     selectedBook: null,
 
     get filteredBooks() {
-      if (!this.searchQuery) {
-        return this.books;
+      // Hanya mencari jika panjang query 4 karakter atau lebih
+      if (this.searchQuery.length < 4) {
+        return this.books; // Tampilkan semua buku jika query kurang dari 4 huruf
       }
 
       const query = this.searchQuery.toLowerCase();
@@ -220,7 +221,8 @@ function bookList() {
     },
 
     get noBooksFound() {
-      return this.searchQuery && this.filteredBooks.length === 0;
+      // Tampilkan "No Books Found" hanya jika searchQuery >= 4 karakter
+      return this.searchQuery.length >= 4 && this.filteredBooks.length === 0;
     },
 
     calculateMatchScore(title, query) {
@@ -240,8 +242,7 @@ function bookList() {
 
       return score / queryWords.length;
     },
-    searchBooks() {
 
-    },
+
   };
 }
