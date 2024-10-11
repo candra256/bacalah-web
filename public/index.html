@@ -115,10 +115,9 @@
         <div x-data="bookList()">
    
           <!-- terhubung dengan fungsi searchBooks -->
-          <form class="mb-5 w-full lg:w-1/2 lg:my-5 lg:mx-auto" @submit.prevent="searchBooks">
+          <form class="mb-5 w-full lg:w-1/2 lg:my-5 lg:mx-auto">
             <input
               x-model="searchQuery"
-              @input="searchBooks"
               class="w-full mr-2 rounded-md p-3 shadow-md"
               style="height: 2.5rem"
               type="search"
