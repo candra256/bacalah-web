@@ -6,7 +6,7 @@
     <title>Bacalah | download e-book digital</title>
     <link rel="icon" href="favicon/favicon.webp" type="image/x-icon" />
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/final.css" />
 
     <!-- alpine.js -->
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -145,7 +145,7 @@
                 <div :key="book.title" class="w-1/2 sm:w-1/4 md:w-1/4 lg:w-1/6 px-2 mb-4">
                   
                   <!-- Card -->
-                  <div class="bg-slate-50 shadow-md rounded h-max text-center p-2">
+                  <div class="bg-slate-800 shadow-md rounded h-max text-center p-2">
                     <img :src="book.cover || 'default-cover.jpg'" :alt="book.title || 'No Title'"  class="w-full h-44 sm:h-44 md:h-52 lg:h-64 xl:h-64 object-cover aspect-[2/3]" />
 
                     <!-- buttons -->
@@ -166,6 +166,7 @@
                             fill="currentColor"
                             class="bi bi-arrow-down-circle-fill"
                             viewBox="0 0 16 16"
+                            style="color: #fff;"
                           >
                             <path
                               d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
@@ -187,6 +188,7 @@
                             fill="currentColor"
                             class="bi bi-journal-bookmark-fill"
                             viewBox="0 0 16 16"
+                            style="color: #fff;"
                           >
                             <path
                               fill-rule="evenodd"
