@@ -6,7 +6,7 @@
     <title>Bacalah | download e-book digital</title>
     <link rel="icon" href="favicon/favicon.webp" type="image/x-icon" />
 
-    <link rel="stylesheet" href="css/final.css" />
+    <link rel="stylesheet" href="css/style.css" />
 
     <!-- alpine.js -->
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -24,7 +24,6 @@
     />
 
     <style>
-    
       [x-cloak] {
         display: none !important;
       }
@@ -76,18 +75,13 @@
       <div
         class="flex-grow basis-1/6 hidden gap-24 items-center justify-center lg:justify-start lg:ml-24 text-xl lg:flex md:hidden"
       >
-        <a href="index.html" class="relative inline-block px-2 py-1 text-gray-800 group">
-          Home
-        
-        </a>
+        <a href="index.html" class="relative inline-block px-2 py-1 text-gray-800 group"> Home </a>
 
         <a href="masukanBuku.html" class="relative inline-block px-2 py-1 text-gray-800 group">
           Contribute
-       
         </a>
         <a href="tentang.html" class="relative inline-block px-2 py-1 text-gray-800 group">
           About
-        
         </a>
       </div>
 
@@ -111,9 +105,7 @@
     <div>
       <!-- main konten -->
       <section class="flex flex-col bg-gray-200 p-3 w-full overflow-hidden">
-
         <div x-data="bookList()">
-   
           <!-- terhubung dengan fungsi searchBooks -->
           <form class="mb-5 w-full lg:w-1/2 lg:my-5 lg:mx-auto">
             <input
@@ -137,16 +129,32 @@
             </div>
           </template>
 
+          <!-- Dropdown Sort By Category -->
+          <div class="mb-5 w-max lg:w-max px-2">
+            <select
+              x-model="selectedCategory"
+              class="w-max rounded-md p-2 shadow-sm"
+            >
+              <option value="">All Categories</option>
+              <option value="self-development">Self-Development</option>
+              <option value="tech">Tech</option>
+              <!-- Tambahkan kategori lainnya di sini -->
+            </select>
+          </div>
+
           <!-- Cards Section -->
           <template x-if="!noBooksFound">
             <div class="flex flex-wrap">
               <template x-for="book in filteredBooks">
                 <!-- container  -->
                 <div :key="book.title" class="w-1/2 sm:w-1/4 md:w-1/4 lg:w-1/6 px-2 mb-4">
-                  
                   <!-- Card -->
                   <div class="bg-slate-800 shadow-md rounded h-max text-center p-2">
-                    <img :src="book.cover || 'default-cover.jpg'" :alt="book.title || 'No Title'"  class="w-full h-44 sm:h-44 md:h-52 lg:h-64 xl:h-64 object-cover aspect-[2/3]" />
+                    <img
+                      :src="book.cover || 'default-cover.jpg'"
+                      :alt="book.title || 'No Title'"
+                      class="w-full h-44 sm:h-44 md:h-52 lg:h-64 xl:h-64 object-cover aspect-[2/3]"
+                    />
 
                     <!-- buttons -->
                     <div class="flex flex-col w-full">
@@ -166,7 +174,7 @@
                             fill="currentColor"
                             class="bi bi-arrow-down-circle-fill"
                             viewBox="0 0 16 16"
-                            style="color: #fff;"
+                            style="color: #fff"
                           >
                             <path
                               d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
@@ -188,7 +196,7 @@
                             fill="currentColor"
                             class="bi bi-journal-bookmark-fill"
                             viewBox="0 0 16 16"
-                            style="color: #fff;"
+                            style="color: #fff"
                           >
                             <path
                               fill-rule="evenodd"
@@ -204,7 +212,6 @@
                         </a>
                       </div>
                     </div>
-
                   </div>
                 </div>
               </template>
@@ -215,7 +222,6 @@
           <div
             x-show="selectedBook"
             x-cloak
-     
             @click.self="selectedBook = null"
             class="fixed inset-0 flex items-center justify-center z-50"
           >
@@ -231,11 +237,15 @@
 
               <!-- konten more information -->
               <div class="flex flex-row md:justify-start">
-
                 <!-- cover book -->
-                <div class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/2 lg:basis-1/2 bg-pink-400">
+                <div
+                  class="w-full h-full mr-2 md:mr-5 basis-1/2 md:basis-1/2 lg:basis-1/2 bg-pink-400"
+                >
                   <template x-if="selectedBook && selectedBook.cover">
-                    <img :src="selectedBook.cover" class="w-full h-full aspect-[2/3] object-cover" />
+                    <img
+                      :src="selectedBook.cover"
+                      class="w-full h-full aspect-[2/3] object-cover"
+                    />
                   </template>
                 </div>
 
@@ -270,13 +280,8 @@
         </div>
       </section>
 
-
-
-
       <!-- footer -->
-      <footer
-        class="w-full h-max bg-slate-950 flex lg:flex-row md:flex-row flex-col-reverse"
-      >
+      <footer class="w-full h-max bg-slate-950 flex lg:flex-row md:flex-row flex-col-reverse">
         <div class="basis-1/2">
           <p class="text-white p-5 text-justify text-wrap">
             &copy; 2024 Bacalah. All rights reserved to the original authors and publishers of the
@@ -296,9 +301,7 @@
           </p>
 
           <div class="mt-4 w-full text-white text-bl rounded-md">
-         
-            
-              <a
+            <a
               href="https://github.com/candra256/bacalah-web"
               target="_blank"
               class="inline-block mr-3"
@@ -319,27 +322,25 @@
             </a>
 
             <a
-            href="mailto:dalangpelo982@gmail.com"
-            class="inline-block"
-            title="send email to developer"
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="40"
-              height="40"
-              fill="currentColor"
-              class="bi bi-envelope"
-              viewBox="0 0 16 16"
+              href="mailto:dalangpelo982@gmail.com"
+              class="inline-block"
+              title="send email to developer"
             >
-              <path
-                d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
-              />
-            </svg>
-          </a>
-        
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="40"
+                height="40"
+                fill="currentColor"
+                class="bi bi-envelope"
+                viewBox="0 0 16 16"
+              >
+                <path
+                  d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1zm13 2.383-4.708 2.825L15 11.105zm-.034 6.876-5.64-3.471L8 9.583l-1.326-.795-5.64 3.47A1 1 0 0 0 2 13h12a1 1 0 0 0 .966-.741M1 11.105l4.708-2.897L1 5.383z"
+                />
+              </svg>
+            </a>
           </div>
         </div>
-
       </footer>
     </div>
 

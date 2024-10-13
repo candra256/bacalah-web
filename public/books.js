@@ -1,15 +1,14 @@
 // books.js
 window.booksData = [
-
   {
     title: "Rich dad Poor dad",
     cover: "img/cover13.webp",
     pdf: "pdf/Rich Dad Poor Dad - Robert T. Kiyosaki.pdf",
     author: "Robert T. Kiyosaki",
-    penerbit:"Plata Publishing",
-    tahunTerbit:" 1997"
+    penerbit: "Plata Publishing",
+    tahunTerbit: " 1997",
+    category: "self-development",
   },
- 
 
   {
     title: "filosofiteras",
@@ -17,9 +16,9 @@ window.booksData = [
     pdf: "pdf/filosofiteras.pdf",
     author: "henry manampiring",
     penerbit: "Penerbit Kompas",
-    tahunTerbit:"2018"
+    tahunTerbit: "2018",
+    category: "self-development",
   },
-
 
   {
     title: "begining python",
@@ -27,7 +26,8 @@ window.booksData = [
     pdf: "pdf/begining_python.pdf",
     author: "Peter Norton, Alex Samuel ...",
     penerbit: "Wiley Publishing, Inc.",
-    tahunTerbit: "2005"
+    tahunTerbit: "2005",
+    category: "tech",
   },
 
   {
@@ -35,36 +35,38 @@ window.booksData = [
     author: "oh su hyang",
     cover: "img/coverS (1).webp",
     pdf: "pdf/bicara_itu_ada_seninya.pdf",
-    penerbit:"Bhuana Ilmu Populer (BIP)",
-    tahunTerbit:"2019"
+    penerbit: "Bhuana Ilmu Populer (BIP)",
+    tahunTerbit: "2019",
+    category: "self-development",
   },
   {
     title: "Psychology of Money",
     cover: "img/cover12.webp",
     pdf: "pdf/Copy of The Psychology of Money  Morgan Housel  (SFILE.MOBI).pdf",
     author: "Morgan Housel",
-    penerbit:"HarperOne",
-    tahunTerbit:"2020"
+    penerbit: "HarperOne",
+    tahunTerbit: "2020",
+    category: "self-development",
   },
-
 
   {
     title: "The Principles Of Power",
     cover: "img/cover14.webp",
     pdf: "pdf/032. The Principles Of Power (Dion Yulianto).pdf",
     author: "Dion Yulianto",
-    penerbit:"Jendela Penerbit",
-    tahunTerbit:"2023"
+    penerbit: "Jendela Penerbit",
+    tahunTerbit: "2023",
+    category: "self-development",
   },
 
-  
   {
     title: "Atomic Habits",
     cover: "img/cover11.webp",
     pdf: "pdf/Atomic Habits Perubahan Kecil yang memberikan hasil luar biasa by James Clear.pdf",
     author: "James Clear",
-    penerbit:"Penguin Random House",
-    tahunTerbit:"2019"
+    penerbit: "Penguin Random House",
+    tahunTerbit: "2019",
+    category: "self-development",
   },
 
   {
@@ -72,8 +74,9 @@ window.booksData = [
     cover: "img/coverS (2).webp",
     pdf: "pdf/teori_kewirausahawan.pdf",
     author: "Dr. Agus Wibowo , M.kom , M.Si , MM",
-    penerbit:"yayasan primaagus teknik",
-    tahunTerbit:"2023"
+    penerbit: "yayasan primaagus teknik",
+    tahunTerbit: "2023",
+    category: "self-development",
   },
 
   {
@@ -81,8 +84,9 @@ window.booksData = [
     cover: "img/cover15.webp",
     pdf: "pdf/Ebook Berani Tidak Disukai.pdf",
     author: "Ichiro Kishimi dan Fumitake Koga",
-    penerbit:"Gramedia Pustaka Utama",
-    tahunTerbit:" 2017"
+    penerbit: "Gramedia Pustaka Utama",
+    tahunTerbit: " 2017",
+    category: "self-development",
   },
 
   {
@@ -90,8 +94,9 @@ window.booksData = [
     cover: "img/cover16.webp",
     pdf: "pdf/Sebuah Seni Bersikap Bodo Amat by Mark Manson.pdf",
     author: "Mark Manson",
-    penerbit:" Gramedia Pustaka Utama",
-    tahunTerbit:"2018"
+    penerbit: " Gramedia Pustaka Utama",
+    tahunTerbit: "2018",
+    category: "self-development",
   },
 
   {
@@ -99,8 +104,9 @@ window.booksData = [
     cover: "img/cover (2).webp",
     pdf: "pdf/game_dev_python.pdf",
     author: "Will McGugan",
-    penerbit:"Apress",
-    tahunTerbit:"2007"
+    penerbit: "Apress",
+    tahunTerbit: "2007",
+    category: "tech",
   },
 
   {
@@ -108,8 +114,9 @@ window.booksData = [
     cover: "img/cover (3).webp",
     pdf: "pdf/artificial_intelegence.pdf",
     author: "Kevin Warwick",
-    penerbit:"Routledge",
-    tahunTerbit:"2012"
+    penerbit: "Routledge",
+    tahunTerbit: "2012",
+    category: "tech",
   },
 
   {
@@ -117,8 +124,9 @@ window.booksData = [
     cover: "img/cover17.webp",
     pdf: "pdf/Public Speaking Mastery.pdf",
     author: "Ongky Hojanto",
-    penerbit:"Gramedia Pustaka Utama",
-    tahunTerbit:"2018"
+    penerbit: "Gramedia Pustaka Utama",
+    tahunTerbit: "2018",
+    category: "self-development",
   },
 
   {
@@ -126,8 +134,9 @@ window.booksData = [
     cover: "img/cover (4).webp",
     pdf: "pdf/analis_big_data.pdf",
     author: "Dr. Joseph Teguh santoso, S.kom , M.kom",
-    penerbit:"yayasan primaagus teknik",
-    tahunTerbit:"2020"
+    penerbit: "yayasan primaagus teknik",
+    tahunTerbit: "2020",
+    category: "tech",
   },
 
   {
@@ -135,8 +144,9 @@ window.booksData = [
     cover: "img/cover (5).webp",
     pdf: "pdf/algoritma_pemograman.pdf",
     author: "edy budiman",
-    penerbit:"data tidak ditemukan",
-    tahunTerbit:"data tidak ditemukan"
+    penerbit: "data tidak ditemukan",
+    tahunTerbit: "data tidak ditemukan",
+    category: "tech",
   },
 
   {
@@ -144,8 +154,9 @@ window.booksData = [
     cover: "img/cover (6).webp",
     pdf: "pdf/kecerdasan_buatan.pdf",
     author: "Jorot Dian Susatyono , M.kom",
-    penerbit:"yayasan primaagus teknik",
-    tahunTerbit:"2021"
+    penerbit: "yayasan primaagus teknik",
+    tahunTerbit: "2021",
+    category: "tech",
   },
 
   {
@@ -153,75 +164,75 @@ window.booksData = [
     cover: "img/cover (7).webp",
     pdf: "pdf/cepatmahirpython.pdf",
     author: "hendri",
-    penerbit:"data tidak ditemukan",
-    tahunTerbit:"data tidak ditemukan"
+    penerbit: "data tidak ditemukan",
+    tahunTerbit: "data tidak ditemukan",
+    category: "tech",
   },
-
 
   {
     title: "projek codingan dengan python",
     cover: "img/cover (8).webp",
     pdf: "pdf/projekcodingdenganpython.pdf",
     author: "Dr. Joseph Teguh santoso, S.ko , M.kom",
-    penerbit:"yayasan primaagus teknik",
-    tahunTerbit:"2022"
+    penerbit: "yayasan primaagus teknik",
+    tahunTerbit: "2022",
+    category: "tech",
   },
 
-  
   {
     title: "data analysis numpy , mathplotlib , pandas",
     cover: "img/cover (10).webp",
     pdf: "pdf/bernd_klein_python_data_analysis_a4.pdf",
     author: "Berd Klein",
-    penerbit:"data tidak ditemukan",
-    tahunTerbit:"data tidak ditemukan"
+    penerbit: "data tidak ditemukan",
+    tahunTerbit: "data tidak ditemukan",
+    category: "tech",
   },
-
- 
-
-
 
   {
     title: "pengendalian keuangan",
     cover: "img/coverS (3).webp",
     pdf: "pdf/pengaturan_uang.pdf",
     author: "Dr.Ir. Agus Wibowo , M.kom , M.Si , MM",
-    penerbit:"yayasan primaagus teknik",
-    tahunTerbit: "2023"
-  }
-
-
-
+    penerbit: "yayasan primaagus teknik",
+    tahunTerbit: "2023",
+    category: "self-development",
+  },
 ];
-
-
 
 function bookList() {
   return {
     searchQuery: "",
+    selectedCategory: "",  // Kategori yang dipilih
     books: window.booksData,
     selectedBook: null,
 
     get filteredBooks() {
-      // Hanya mencari jika panjang query 4 karakter atau lebih
-      if (this.searchQuery.length < 4) {
-        return this.books; // Tampilkan semua buku jika query kurang dari 4 huruf
+      // Hanya tampilkan buku jika query lebih dari 4 karakter atau kategori dipilih
+      let filtered = this.books;
+
+      // Filter berdasarkan query pencarian jika ada
+      if (this.searchQuery.length >= 4) {
+        const query = this.searchQuery.toLowerCase();
+        filtered = filtered
+          .map((book) => ({
+            book,
+            score: this.calculateMatchScore(book.title.toLowerCase(), query),
+          }))
+          .filter((result) => result.score > 0)
+          .sort((a, b) => b.score - a.score)
+          .map((result) => result.book);
       }
 
-      const query = this.searchQuery.toLowerCase();
-      const results = this.books
-        .map((book) => ({
-          book,
-          score: this.calculateMatchScore(book.title.toLowerCase(), query),
-        }))
-        .filter((result) => result.score > 0)
-        .sort((a, b) => b.score - a.score);
+      // Filter berdasarkan kategori yang dipilih
+      if (this.selectedCategory) {
+        filtered = filtered.filter(book => book.category === this.selectedCategory);
+      }
 
-      return results.map((result) => result.book);
+      return filtered;
     },
 
     get noBooksFound() {
-      // Tampilkan "No Books Found" hanya jika searchQuery >= 4 karakter
       return this.searchQuery.length >= 4 && this.filteredBooks.length === 0;
     },
 
@@ -243,6 +254,6 @@ function bookList() {
       return score / queryWords.length;
     },
 
-
   };
 }
+
