@@ -202,16 +202,16 @@ window.booksData = [
 
 function bookList() {
   return {
-    searchQuery: "",
+    searchQuery: "", //kata kunci pencarian
     selectedCategory: "",  // Kategori yang dipilih
-    books: window.booksData,
+    books: window.booksData, //data buku 
     selectedBook: null,
 
     get filteredBooks() {
-      // Hanya tampilkan buku jika query lebih dari 4 karakter atau kategori dipilih
+
       let filtered = this.books;
 
-      // Filter berdasarkan query pencarian jika ada
+      // Pencarian hanya dilakukan jika searchQuery lebih dari 4 karakter
       if (this.searchQuery.length >= 4) {
         const query = this.searchQuery.toLowerCase();
         filtered = filtered

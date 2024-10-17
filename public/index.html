@@ -3,10 +3,10 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bacalah | download e-book digital</title>
+    <title>E-Baca | download e-book digital</title>
     <link rel="icon" href="favicon/favicon.webp" type="image/x-icon" />
 
-    <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/styles.css" />
 
     <!-- alpine.js -->
     <script src="//unpkg.com/alpinejs" defer></script>
@@ -42,14 +42,14 @@
     </div>
 
     <!-- navigasi -->
-    <nav class="flex flex-row bg-blue-300 h-14 p-3 md:p-4 w-full sticky top-0 z-10 shadow-md">
+    <nav class="flex flex-row bg-slate-800 h-14 p-3 md:p-4 w-full sticky top-0 z-10 shadow-md">
       <!-- Logo dan Link Utama -->
       <a
         style="font-family: protest-guerrilla-regular"
         href="index.html"
-        class="flex items-center cursor-pointer flex-shrink-0 basis-1/6 text-2xl md:text-5xl lg:text-4xl md:font-semibold text-nowrap font-bold"
+        class="flex items-center text-white cursor-pointer flex-shrink-0 basis-1/6 text-2xl md:text-5xl lg:text-4xl md:font-normal text-nowrap font-normal lg:font-normal"
       >
-        Bacalah
+        E-Baca
         <svg
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -68,19 +68,19 @@
 
       <!-- Menu Hamburger dan Ikon Pencarian -->
       <div class="flex items-center ml-auto">
-        <button id="menu-button" class="lg:hidden text-black text-2xl">☰</button>
+        <button id="menu-button" class="lg:hidden text-white text-2xl">☰</button>
       </div>
 
       <!-- Menu Links (Hidden on Mobile) -->
       <div
         class="flex-grow basis-1/6 hidden gap-24 items-center justify-center lg:justify-start lg:ml-24 text-xl lg:flex md:hidden"
       >
-        <a href="index.html" class="relative inline-block px-2 py-1 text-gray-800 group"> Home </a>
+        <a href="index.html" class="relative inline-block px-2 py-1 text-white group"> Home </a>
 
-        <a href="masukanBuku.html" class="relative inline-block px-2 py-1 text-gray-800 group">
+        <a href="masukanBuku.html" class="relative inline-block px-2 py-1 text-white group">
           Contribute
         </a>
-        <a href="tentang.html" class="relative inline-block px-2 py-1 text-gray-800 group">
+        <a href="tentang.html" class="relative inline-block px-2 py-1 text-white group">
           About
         </a>
       </div>
@@ -91,7 +91,7 @@
         class="fixed top-0 right-0 h-full w-64 md:w-80 bg-black transform translate-x-full transition-transform duration-300 ease-in-out"
       >
         <div class="flex justify-end p-4">
-          <button id="close-menu" class="text-3xl text-white hover:">❎</button>
+          <button id="close-menu" class="text-3xl text-white hover:">✖</button>
         </div>
 
         <div class="flex flex-col items-center text-xl space-y-4 mt-8 gap-y-10">
@@ -104,13 +104,13 @@
 
     <div>
       <!-- main konten -->
-      <section class="flex flex-col bg-gray-200 p-3 w-full overflow-hidden">
+      <section class="flex flex-col bg-gray-100 p-3 w-full overflow-hidden">
         <div x-data="bookList()">
           <!-- terhubung dengan fungsi searchBooks -->
           <form class="mb-5 w-full lg:w-1/2 lg:my-5 lg:mx-auto">
             <input
               x-model="searchQuery"
-              class="w-full mr-2 rounded-md p-3 shadow-sm"
+              class="w-full mr-2 rounded-md p-3 placeholder-white shadow-sm bg-slate-700 ocus:outline-none text-white"
               style="height: 2.5rem"
               type="search"
               placeholder="search by book title"
@@ -133,7 +133,7 @@
           <div class="mb-5 w-max lg:w-max px-2">
             <select
               x-model="selectedCategory"
-              class="w-max rounded-md p-2 shadow-sm"
+              class="w-max rounded-md p-2 shadow-sm bg-gray-600 text-white"
             >
               <option value="">All Categories</option>
               <option value="self-development">Self-Development</option>
@@ -149,7 +149,7 @@
                 <!-- container  -->
                 <div :key="book.title" class="w-1/2 sm:w-1/4 md:w-1/4 lg:w-1/6 px-2 mb-4">
                   <!-- Card -->
-                  <div class="bg-slate-800 shadow-md rounded h-max text-center p-2">
+                  <div class="bg-gray-300 shadow-md rounded h-max text-center p-2">
                     <img
                       :src="book.cover || 'default-cover.jpg'"
                       :alt="book.title || 'No Title'"
@@ -174,7 +174,7 @@
                             fill="currentColor"
                             class="bi bi-arrow-down-circle-fill"
                             viewBox="0 0 16 16"
-                            style="color: #fff"
+                            style="color: black"
                           >
                             <path
                               d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
@@ -196,7 +196,7 @@
                             fill="currentColor"
                             class="bi bi-journal-bookmark-fill"
                             viewBox="0 0 16 16"
-                            style="color: #fff"
+                            style="color: black;"
                           >
                             <path
                               fill-rule="evenodd"
@@ -225,13 +225,13 @@
             @click.self="selectedBook = null"
             class="fixed inset-0 flex items-center justify-center z-50"
           >
-            <div class="bg-slate-950 p-3 rounded-lg w-11/12 h-max md:w-1/8 lg:w-1/3" @click.stop>
+            <div class="bg-slate-950 p-3 rounded-lg w-11/12 h-max md:w-1/8 lg:w-1/2 lg:h-max" @click.stop>
               <!-- title more information -->
               <div class="relative text-center">
                 <h6
-                  class="text-white text-xl font-semibold border-b w-full border-gray-200 mb-4 inline-block capitalize sm:3xl md:text-4xl lg:text-2xl"
+                  class="text-gray-100 text-xl font-semibold border-b w-full border-gray-200 mb-4 inline-block sm:3xl md:text-4xl lg:text-2xl lg:pb-2 lg:font-semibold"
                 >
-                  information about this book
+                  Information about this book
                 </h6>
               </div>
 
@@ -254,21 +254,21 @@
                   class="basis-1/2 md:basis-1/2 overflow-y-auto custom-scrollbar lg:basis-1/2 text-nowrap"
                 >
                   <p
-                    class="text-white text-left capitalize sm:text-xl mb-2 text-xs md:text-4xl lg:text-xl md:mb-6 lg:mb-3"
+                    class="text-white text-left capitalize sm:text-xl mb-2 text-sm md:text-4xl lg:text-xl md:mb-6 lg:mb-3"
                   >
                     <span class="font-semibold">author :</span>
                     <span x-text="selectedBook ? selectedBook.author : ''"></span>
                   </p>
 
                   <p
-                    class="text-white text-left capitalize sm:text-xl mb-2 text-xs md:text-4xl lg:text-xl md:mb-6 lg:mb-3"
+                    class="text-white text-left capitalize sm:text-xl mb-2 text-sm md:text-4xl lg:text-xl md:mb-6 lg:mb-3"
                   >
                     <span class="font-semibold">publisher : </span>
                     <span x-text="selectedBook ? selectedBook.penerbit : ''"></span>
                   </p>
 
                   <p
-                    class="text-white capitalize text-left sm:text-xl text-xs md:text-4xl lg:text-xl"
+                    class="text-white capitalize text-left sm:text-xl text-sm md:text-4xl lg:text-xl"
                   >
                     <span class="font-semibold">publication Year :</span>
                     <span x-text="selectedBook ? selectedBook.tahunTerbit : ''"></span>
@@ -284,7 +284,7 @@
       <footer class="w-full h-max bg-slate-950 flex lg:flex-row md:flex-row flex-col-reverse">
         <div class="basis-1/2">
           <p class="text-white p-5 text-justify text-wrap">
-            &copy; 2024 Bacalah. All rights reserved to the original authors and publishers of the
+            &copy; 2024 E-Baca. All rights reserved to the original authors and publishers of the
             books. This website is a non-commercial project created solely for educational purposes
             by the developer. The developer does not claim any ownership over the content, nor does
             the developer seek any profit from it. The books provided are for reading purposes only,
