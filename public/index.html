@@ -135,9 +135,9 @@
               x-model="selectedCategory"
               class="w-max rounded-md p-2 shadow-sm bg-gray-600 text-white"
             >
-              <option value="">All Categories</option>
-              <option value="self-development">Self-Development</option>
-              <option value="tech">Tech</option>
+              <option value="" class="bg-white text-black">All Categories</option>
+              <option value="self-development" class="bg-white text-black">Self-Development</option>
+              <option value="tech" class="bg-white text-black">Tech</option>
               <!-- Tambahkan kategori lainnya di sini -->
             </select>
           </div>
@@ -158,15 +158,17 @@
 
                     <!-- buttons -->
                     <div class="flex flex-col w-full">
-                      <div class="mt-2">
+                      <div class="mt-2 flex justify-around">
                         <!-- button download -->
-                        <a
+                         <div class="m-1">
+                          <a
                           href="#"
                           title="download this book"
                           download
-                          class="inline-block mr-3"
+                          class="inline-block"
                           @click.prevent="downloadBook(book.pdf)"
                         >
+                        
                           <svg
                             xmlns="http://www.w3.org/2000/svg"
                             width="20"
@@ -180,13 +182,17 @@
                               d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
                             />
                           </svg>
+                      
                         </a>
-
+                        <p class="w-max bg-white p-0.5 rounded-md font-semibold">download</p>
+                         </div>
+                       
                         <!-- button more information -->
-                        <a
+                         <div class="m-1">
+                          <a
                           href="#"
                           @click.prevent="selectedBook = book"
-                          class="inline-block ml-3"
+                          class="inline-block"
                           title="more information"
                         >
                           <svg
@@ -210,6 +216,11 @@
                             />
                           </svg>
                         </a>
+                        <p class="bg-white w-max p-0.5 rounded-md font-semibold">
+                          information
+                        </p>
+                         </div>
+                      
                       </div>
                     </div>
                   </div>
