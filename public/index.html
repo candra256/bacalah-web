@@ -158,9 +158,9 @@
 
                     <!-- buttons -->
                     <div class="flex flex-col w-full">
-                      <div class="mt-2 flex justify-around">
+                      <div class="mt-2 flex lg:justify-around justify-center w-full">
                         <!-- button download -->
-                         <div class="m-1">
+                         <div class="lg:m-1 w-full">
                           <a
                           href="#"
                           title="download this book"
@@ -169,26 +169,16 @@
                           @click.prevent="downloadBook(book.pdf)"
                         >
                         
-                          <svg
-                            xmlns="http://www.w3.org/2000/svg"
-                            width="20"
-                            height="20"
-                            fill="currentColor"
-                            class="bi bi-arrow-down-circle-fill"
-                            viewBox="0 0 16 16"
-                            style="color: black"
-                          >
-                            <path
-                              d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0M8.5 4.5a.5.5 0 0 0-1 0v5.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293z"
-                            />
-                          </svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-arrow-down-square-fill" viewBox="0 0 16 16">
+                          <path d="M2 0a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2a2 2 0 0 0-2-2zm6.5 4.5v5.793l2.146-2.147a.5.5 0 0 1 .708.708l-3 3a.5.5 0 0 1-.708 0l-3-3a.5.5 0 1 1 .708-.708L7.5 10.293V4.5a.5.5 0 0 1 1 0"/>
+                        </svg>
                       
                         </a>
-                        <p class="w-max bg-white p-0.5 rounded-md font-semibold">download</p>
+                        <p class="w-max my-0 mx-auto capitalize font-sans text-xs lg:text-base font-semibold">download</p>
                          </div>
                        
                         <!-- button more information -->
-                         <div class="m-1">
+                         <div class="lg:m-1 w-full ">
                           <a
                           href="#"
                           @click.prevent="selectedBook = book"
@@ -216,7 +206,7 @@
                             />
                           </svg>
                         </a>
-                        <p class="bg-white w-max p-0.5 rounded-md font-semibold">
+                        <p class="w-max my-0 capitalize mx-auto font-sans text-xs lg:text-base rounded-md font-semibold">
                           information
                         </p>
                          </div>
